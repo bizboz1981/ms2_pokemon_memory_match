@@ -1,6 +1,7 @@
 const pokeBaseURL = 'https://pokeapi.co/api/v2/pokemon/';
 const game = document.getElementById('game');
 const btn = document.getElementById('btn');
+let numberOfPairs = 8;
 
 /** there are over 1000 pokemon in the database */
 const randNum = () => {
@@ -67,8 +68,14 @@ const createCard = (pokemon) => {
     return card
 }
 
-// test to check that card renders on html
-// test pokemon
+/** This function will display the cards face down on the html */
 
-
+const displayCards = () => {
+    // create empty array to hold cards
+    // create an array of pokemon by calling loadPokemon (with the argument set globally as numberOfPairs)
+    // call createCard on each element if the array returned by loadPokemon and push to array twice
+    // shuffle
+    // append to game div
+    // handle visibility and flipping animation with css
+}
 
