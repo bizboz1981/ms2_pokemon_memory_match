@@ -61,6 +61,10 @@ const createCard = (pokemon) => {
     front.classList.add('front');
     back.classList.add('back');
 
+    let spriteImage = document.createElement('img');
+    spriteImage.src = pokemon.sprite;
+    front.appendChild(spriteImage);
+
     //set structure
     card.appendChild(back);
     card.appendChild(front);
