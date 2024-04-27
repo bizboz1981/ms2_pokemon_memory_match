@@ -6,13 +6,6 @@ const btn = document.getElementById('btn');
 const randNum = () => {
     return Math.ceil(Math.random() * 1000);
 }
-const testPokeApi = async () => {
-    const pokemons = await loadPokemon(1);
-    const testCard = createCard(pokemons[0]);
-    game.appendChild(testCard);
-}
-btn.addEventListener('click', testPokeApi);
-
 
 /** Define Pokemon Class */
 class Pokemon {
