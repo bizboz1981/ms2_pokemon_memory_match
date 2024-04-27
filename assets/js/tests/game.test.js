@@ -1,5 +1,5 @@
 /** test ability to display random number on html page */
-const testButton = () => {
+const testApiText = () => {
     btn.addEventListener('click', () => {
         console.log('function executing');
         loadPokemon(8).then(results => {
@@ -7,7 +7,7 @@ const testButton = () => {
         });    
     });
 };
-testButton();
+testApiText();
 
 // test with sample pikachu data
 const pikachu = {
@@ -15,13 +15,13 @@ const pikachu = {
     sprite: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png',
     type: 'Electric'
 }
-const testButton = () => {
+const testPikachu = () => {
     btn.addEventListener('click', () => {
         const testCard = createCard(loadPokemon(1));
         game.appendChild(testCard)  
     });
 };
-testButton();
+testPikachu();
 
 // test live api
 const testPokeApi = async () => {
@@ -31,3 +31,4 @@ const testPokeApi = async () => {
 }
 btn.addEventListener('click', testPokeApi);
 
+testPokeApi();
