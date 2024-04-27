@@ -6,21 +6,13 @@ const btn = document.getElementById('btn');
 const randNum = () => {
     return Math.ceil(Math.random() * 1000);
 }
-
-/** test ability to display random number on html page */
-
-const pikachu = {
-    name: 'Pikachu',
-    sprite: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png',
-    type: 'Electric'
+const testPokeApi = async () => {
+    const pokemons = await loadPokemon(1);
+    const testCard = createCard(pokemons[0]);
+    game.appendChild(testCard);
 }
-const testButton = () => {
-    btn.addEventListener('click', () => {
-        const testCard = createCard(pikachu);
-        game.appendChild(testCard)  
-    });
-};
-testButton();
+btn.addEventListener('click', testPokeApi);
+
 
 /** Define Pokemon Class */
 class Pokemon {
@@ -53,7 +45,7 @@ const loadPokemon = async (numPairs) => {
 const createCard = (pokemon) => {
     // create parent card div as well as front and back children
     const card = document.createElement('div');
-    const front = document.createElement('dv');
+    const front = document.createElement('div');
     const back = document.createElement('div');
 
     // add class attributes to card divs
@@ -61,9 +53,18 @@ const createCard = (pokemon) => {
     front.classList.add('front');
     back.classList.add('back');
 
+    // add sprite image to front
     let spriteImage = document.createElement('img');
-    spriteImage.src = pokemon.sprite;
+    spriteImage.src = pokemon.sprites.front_default;
     front.appendChild(spriteImage);
+
+    // add static image to back
+    const backImage = document.createElement('img');
+    backImage.src = 'https://github.com/PokeAPI/sprites/blob/master/sprites/badges/1.png?raw=true';
+    back.appendChild(backImage);
+
+    // add unique id for card div
+    card.setAttribute('data-pokemon', pokemon.name);
 
     //set structure
     card.appendChild(back);
