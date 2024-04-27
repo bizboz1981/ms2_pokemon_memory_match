@@ -18,6 +18,15 @@ const testButton = () => {
 };
 testButton();
 
+/** Define Pokemon Class */
+class Pokemon {
+    constructor(name, abilities, types) {
+        this.name = name;
+        this.abilities = abilities;
+        this.types = types;
+    }
+}
+
 /** This function performs an asynchronous loading of required number of pokemon 
  * We use async so that all pokemon are returned at the same time without pausing the rest of the code
  * Must return an array of pokemon data in json format
