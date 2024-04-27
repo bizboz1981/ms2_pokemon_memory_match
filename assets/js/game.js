@@ -8,12 +8,16 @@ const randNum = () => {
 }
 
 /** test ability to display random number on html page */
+
+const pikachu = {
+    name: 'Pikachu',
+    sprite: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png',
+    type: 'Electric'
+}
 const testButton = () => {
     btn.addEventListener('click', () => {
-        console.log('function executing');
-        loadPokemon(8).then(results => {
-            game.innerText = JSON.stringify(results);
-        });    
+        const testCard = createCard(pikachu);
+        game.appendChild(testCard)  
     });
 };
 testButton();
@@ -64,3 +68,9 @@ const createCard = (pokemon) => {
     // return the completed card
     return card
 }
+
+// test to check that card renders on html
+// test pokemon
+
+
+
