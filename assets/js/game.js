@@ -51,4 +51,16 @@ const createCard = (pokemon) => {
     const card = document.createElement('div');
     const front = document.createElement('dv');
     const back = document.createElement('div');
+
+    // add class attributes to card divs
+    card.classList.add('card');
+    front.classList.add('front');
+    back.classList.add('back');
+
+    //set structure
+    card.appendChild(back);
+    card.appendChild(front);
+
+    // return the completed card
+    return card
 }
