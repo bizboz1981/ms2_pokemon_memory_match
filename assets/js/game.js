@@ -20,11 +20,12 @@ testButton();
 
 /** Define Pokemon Class */
 class Pokemon {
-    constructor(name, abilities, types) {
+    constructor(name, sprite, type) {
         this.name = name;
-        this.abilities = abilities;
-        this.types = types;
+        this.sprite = sprite;
+        this.type = type;
     }
+    // method to create card to go here?
 }
 
 /** This function performs an asynchronous loading of required number of pokemon 
@@ -40,4 +41,14 @@ const loadPokemon = async (numPairs) => {
     const pokePromises = [...randIds].map(id => fetch(pokeBaseURL + id)); // Spread the randIds set into an array which supports .map. For each id in the array, fetch a promise from the base URL with random id appended. Returns an array of promises
     const results = await Promise.all(pokePromises); // returns a single promise that resolves when all pokePromises have resolved; returns an array
     return await Promise.all(results.map(res => res.json()));
+}
+
+/** Create a parent card div with 'front' and 'back' children
+ *  This won't display cards, it just gives the displayCards function the data/objects it needs
+ */
+const createCard = (pokemon) => {
+    // create parent card div as well as front and back children
+    const card = document.createElement('div');
+    const front = document.createElement('dv');
+    const back = document.createElement('div');
 }
