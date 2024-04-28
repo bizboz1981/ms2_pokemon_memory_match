@@ -103,18 +103,13 @@ const displayCards = async () => {
     // append to game div
     shuffledDeck.forEach((card) => {
         game.appendChild(card);
+        card.addEventListener('click', flipCard);
     });
     // handle visibility and flipping animation with css
 }
 
 const flipCard = (card) => {
-    let cards = document.getElementsByClassName('card');
-    for (x in cards) {
-        x.addEventListener('click', function((card), {
-            //   
-        }))
-    } 
-    
+    this.card.classList.add('flipped')
 }
 
 // displayCards();
