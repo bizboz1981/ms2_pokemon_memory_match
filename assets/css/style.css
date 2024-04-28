@@ -46,19 +46,21 @@
     backface-visibility: hidden;
 }
 
-.card .card-front {
+.card .card-back {
     z-index: 2;
-}
-
-.card.flipped .card-front {
-    z-index: 1;
+    background-color: goldenrod;
+    border-radius: 5px;
 }
 
 .card.flipped .card-back {
+    z-index: 1;
+}
+
+.card.flipped .card-front {
     z-index: 2;
 }
 
-.card .card-back {
+.card .card-front {
     transform: rotateY(180deg);
 }
 
