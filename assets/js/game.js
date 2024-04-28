@@ -66,8 +66,9 @@ const createCard = (pokemon) => {
 
     //set structure
     card.appendChild(cardInner)
-    cardInner.appendChild(cardBack);
     cardInner.appendChild(cardFront);
+    cardInner.appendChild(cardBack);
+
 
     // return the completed card
     return card
