@@ -68,12 +68,21 @@ const createCard = (pokemon) => {
     return card
 }
 
-/** This function will display the cards face down on the html */
+/** This function will display the cards face down on the html 
+ * ref: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function#
+ * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach
+*/
 
 const displayCards = () => {
     // create empty array to hold cards
+    let cardDeck = [];
     // create an array of pokemon by calling loadPokemon (with the argument set globally as numberOfPairs)
+    let pokemons = loadPokemon(numberOfPairs);
     // call createCard on each element if the array returned by loadPokemon and push to array twice
+    pokemons.forEach((pokemon) => {
+        cardDeck.push(pokemon);
+        cardDeck.push(pokemon);
+    });
     // shuffle
     // append to game div
     // handle visibility and flipping animation with css
