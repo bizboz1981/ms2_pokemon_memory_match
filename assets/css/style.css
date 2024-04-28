@@ -1,0 +1,49 @@
+#container {
+    position:relative;
+    display: flex;
+    justify-content: center;
+}
+#game {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    width: fit-content;
+    margin: auto;
+}
+.card {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    border-radius: 5px;
+    background-color:cadetblue;
+    z-index: -100;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    margin:0;
+    box-sizing:border-box;
+}
+
+.card img {
+    width: 100px;
+    object-fit: cover;
+    margin: auto;
+    /* position: relative;
+    left: -50px; */
+}
+
+.card .front, .card .back {
+    position: absolute; /* Add this */
+    width: 100%; /* Add this */
+    height: 100%; /* Add this */
+    top: 0; /* Add this */
+    left: 0; /* Add this */
+    display: flex; /* Add this */
+    justify-content: center; /* Add this */
+    align-items: center;
+}
+
+.back {
+    visibility: hidden;
+}
