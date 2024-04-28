@@ -8,6 +8,8 @@ const randNum = () => {
     return Math.ceil(Math.random() * 1000);
 }
 
+
+
 /** Define Pokemon Class */
 class Pokemon {
     constructor(name, sprite, type) {
@@ -73,18 +75,23 @@ const createCard = (pokemon) => {
  * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach
 */
 
-const displayCards = () => {
+const displayCards = async () => {
     // create empty array to hold cards
     let cardDeck = [];
     // create an array of pokemon by calling loadPokemon (with the argument set globally as numberOfPairs)
-    let pokemons = loadPokemon(numberOfPairs);
+    let pokemons = await loadPokemon(numberOfPairs);
     // call createCard on each element if the array returned by loadPokemon and push to array twice
     pokemons.forEach((pokemon) => {
-        cardDeck.push(pokemon);
-        cardDeck.push(pokemon);
+        cardDeck.push(createCard(pokemon));
+        cardDeck.push(createCard(pokemon));
     });
     // shuffle
+    const shuffledDeck = shuffleArray(cardDeck);
     // append to game div
+    game.appendChild(shuffledDeck);
     // handle visibility and flipping animation with css
 }
 
+btn.addEventListener('click', displayCards);
+
+displayCards();
