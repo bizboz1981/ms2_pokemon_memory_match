@@ -106,11 +106,11 @@ const displayCards = async () => {
         card.addEventListener('click', flipCard);
     });
     // handle visibility and flipping animation with css
-}
+};
 
-const flipCard = (card) => {
-    this.card.classList.add('flipped')
-}
+function flipCard() {
+    this.classList.add('flipped');
+};
 
 // displayCards();
 btn.addEventListener('click', displayCards);
