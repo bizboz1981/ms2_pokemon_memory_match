@@ -41,30 +41,33 @@ const loadPokemon = async (numPairs) => {
 const createCard = (pokemon) => {
     // create parent card div as well as front and back children
     const card = document.createElement('div');
-    const front = document.createElement('div');
-    const back = document.createElement('div');
+    const cardInner = document.createElement('div')
+    const cardFront = document.createElement('div');
+    const cardBack = document.createElement('div');
 
     // add class attributes to card divs
     card.classList.add('card');
-    front.classList.add('front');
-    back.classList.add('back');
+    cardInner.classList.add('card-inner')
+    cardFront.classList.add('card-front');
+    cardBack.classList.add('card-back');
 
     // add sprite image to front
     let spriteImage = document.createElement('img');
     spriteImage.src = pokemon.sprites.front_default;
-    front.appendChild(spriteImage);
+    cardFront.appendChild(spriteImage);
 
     // add static image to back
     const backImage = document.createElement('img');
     backImage.src = 'https://github.com/PokeAPI/sprites/blob/master/sprites/badges/1.png?raw=true';
-    back.appendChild(backImage);
+    cardBack.appendChild(backImage);
 
     // add unique id for card div
     card.setAttribute('data-pokemon', pokemon.name);
 
     //set structure
-    card.appendChild(back);
-    card.appendChild(front);
+    card.appendChild(cardInner)
+    cardInner.appendChild(cardBack);
+    cardInner.appendChild(cardFront);
 
     // return the completed card
     return card
@@ -103,6 +106,17 @@ const displayCards = async () => {
     });
     // handle visibility and flipping animation with css
 }
+
+const flipCard = (card) => {
+    let cards = document.getElementsByClassName('card');
+    for (x in cards) {
+        x.addEventListener('click', function((card), {
+            //   
+        }))
+    } 
+    
+}
+
 // displayCards();
 btn.addEventListener('click', displayCards);
 
