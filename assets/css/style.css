@@ -24,21 +24,13 @@
     padding: 0;
     margin:0;
     box-sizing:border-box;
-    transition: transform 0.8s;
-    transform-style: preserve-3d;
 }
 
 .card img {
     width: 100px;
     object-fit: cover;
     margin: auto;
-    /* position: relative;
-    left: -50px; */
 }
-
-.card:hover .card-inner {
-    transform: rotateY(180deg);
-}  
 
 .card .card-front, .card .card-back {
     position: absolute; 
@@ -49,8 +41,6 @@
     display: flex; 
     justify-content: center; 
     align-items: center;
-    -webkit-backface-visibility: hidden; /* Safari */
-    backface-visibility: hidden;
 }
 
 .card-back {
