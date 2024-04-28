@@ -10,19 +10,22 @@
     width: fit-content;
     margin: auto;
 }
+
 .card {
-    position: relative;
     width: 150px;
     height: 150px;
-    border-radius: 5px;
     background-color:cadetblue;
-    z-index: -100;
+    position: relative;
+    position: relative;
+    border-radius: 5px;
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 0;
     margin:0;
     box-sizing:border-box;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
 }
 
 .card img {
@@ -33,17 +36,23 @@
     left: -50px; */
 }
 
-.card .front, .card .back {
-    position: absolute; /* Add this */
-    width: 100%; /* Add this */
-    height: 100%; /* Add this */
-    top: 0; /* Add this */
-    left: 0; /* Add this */
-    display: flex; /* Add this */
-    justify-content: center; /* Add this */
+.card:hover .card-inner {
+    transform: rotateY(180deg);
+}  
+
+.card .card-front, .card .card-back {
+    position: absolute; 
+    width: 100%; 
+    height: 100%; 
+    top: 0; 
+    left: 0; 
+    display: flex; 
+    justify-content: center; 
     align-items: center;
+    -webkit-backface-visibility: hidden; /* Safari */
+    backface-visibility: hidden;
 }
 
-.back {
+.card-back {
     visibility: hidden;
 }
