@@ -124,13 +124,19 @@ function flipCard() {
 const checkCards = () => {
     let score = 0;
     let cardIds = [];
-    const flippedToCheck = document.querySelector('.flipped');
-    flippedToCheck.forEach(function() {
-        cardIds.push(flippedToCheck.dataset.pokemon);
+    const flippedToCheck = document.querySelectorAll('.flipped');
+    flippedToCheck.forEach(function(card) {
+        cardIds.push(card.dataset.pokemon);
     });
+
     if (cardIds[0] === cardIds[1]) {
         score++;
         document.getElementById('score').innerHTML = score;
+    } else {
+        cardIds = [];
+        flippedToCheck.forEach(function(card) {
+            card.classList.remove('flipped');
+        })
     }
 }
 
