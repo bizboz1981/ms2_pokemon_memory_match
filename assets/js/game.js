@@ -134,10 +134,13 @@ const checkCards = () => {
         document.getElementById('score').innerHTML = score;
     } else {
         cardIds = [];
-        flippedToCheck.forEach(function(card) {
-            card.classList.remove('flipped');
-        })
+        setTimeout(() => {
+            flippedToCheck.forEach(function(card) {
+                card.classList.remove('flipped');
+            })
+        },1000);        
     }
+    flippedCards = 0;
 }
 
 // displayCards() for testing purposes;
