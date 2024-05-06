@@ -15,19 +15,23 @@
 6. create front and back of cards ✅
 7. Place the cards face down on the table ✅
 8.  Define game logic and features (match/no match, increment score, leaderboard etc.)\
-  - Flip cards
-    - add 'flipped' class to card on click 
-    - hide back and show front of card
-    - increment counter by 1
-    - when counter == 2, invoke compareCards function, reset counter to 0
+  - Flip cards✅
+    - add 'flipped' class to card on click ✅
+    - hide back and show front of card✅
+    - increment counter by 1✅
+    - when counter == 2, invoke compareCards function, reset counter to 0✅
   - check cards:
-    - compare custom data types (name of pokemon) on cards with 'flipped' class
-    - if the same, do not turn back over
-    - increment score by 1
-    - check if all cards are flipped
+    - compare custom data types (name of pokemon) on cards with 'flipped' class✅
+    - if the same, do not turn back over✅
+    - increment score by 1✅
+    - check if all cards are flipped✅
   - 
-9.  Define end game (win/lose)
-10. Reset game
+9.  Add turn counter
+10. add option for player to choose number of pairs (between 4 & 12)?
+11. Define end game (win/lose)
+12. Reset game
+13. New branch to attempt implementation of OOP / Pokemon class 
+14. Style the game & make responsive
 
 References/Resources
 - https://photics.com/flipping-a-card-with-html-css-javascript/

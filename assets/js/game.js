@@ -163,7 +163,7 @@ const endGame = () => {
     setTimeout(() => {
         game.innerHTML = "You Win!!";
         game.classList.add("celebrate");
-    });
+    }, 600);
 };
 
 // displayCards() for testing purposes;
