@@ -3,6 +3,7 @@ const game = document.getElementById("game");
 const btn = document.getElementById("btn");
 let flippedCards = 0;
 let numberOfPairs = 8;
+let score = 0;
 
 /** there are over 1000 pokemon in the database */
 const randNum = () => {
@@ -121,7 +122,6 @@ function flipCard() {
 /** Game logic */
 
 const checkCards = () => {
-    let score = 0;
     let cardIds = [];
     const flippedToCheck = document.querySelectorAll(".flipped");
     flippedToCheck.forEach(function (card) {
@@ -148,4 +148,7 @@ const checkCards = () => {
 };
 
 // displayCards() for testing purposes;
-btn.addEventListener("click", displayCards);
+btn.addEventListener("click", () => {
+    game.innerHTML = "";
+    displayCards();
+});
