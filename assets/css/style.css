@@ -60,6 +60,7 @@
 .card.flipped .card-front {
     z-index: 2;
     transform: rotateY(180deg);
+    pointer-events: none;
 }
 
 .card.paired .card-back {
@@ -69,6 +70,7 @@
 .card.paired .card-front {
     z-index: 3;
     transform: rotateY(180deg);
+    pointer-events: none;
 }
 
 .card.paired .card-inner {

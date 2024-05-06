@@ -135,6 +135,7 @@ const checkCards = () => {
         flippedToCheck.forEach(function (card) {
             card.classList.add("paired");
             card.classList.remove("flipped");
+            card.removeEventListener;
         });
     } else {
         cardIds = [];
