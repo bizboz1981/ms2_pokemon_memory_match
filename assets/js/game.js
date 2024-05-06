@@ -1,6 +1,7 @@
 const pokeBaseURL = 'https://pokeapi.co/api/v2/pokemon/';
 const game = document.getElementById('game');
 const btn = document.getElementById('btn');
+let flippedCards = 0;
 let numberOfPairs = 8;
 
 /** there are over 1000 pokemon in the database */
@@ -111,8 +112,16 @@ const displayCards = async () => {
 
 function flipCard() {
     this.classList.add('flipped');
+    flippedCards++;
+    document.getElementById('flipped-cards').innerHTML = flippedCards;
 };
 
-// displayCards();
+/** Game logic */
+
+const checkCards = () => {
+
+}
+
+// displayCards() for testing purposes;
 btn.addEventListener('click', displayCards);
 
