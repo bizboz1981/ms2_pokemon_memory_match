@@ -3,6 +3,7 @@ const game = document.getElementById("game");
 const btn = document.getElementById("btn");
 let flippedCards = 0;
 let numberOfPairs = 8;
+let matchedPairs = 0;
 let score = 0;
 
 /** there are over 1000 pokemon in the database */
@@ -137,12 +138,12 @@ const checkCards = () => {
 
     if (cardIds[0] === cardIds[1]) {
         score++;
+        matchedPairs++;
         document.getElementById("score").innerHTML = score;
         flippedCards = 0;
         flippedToCheck.forEach(function (card) {
             card.classList.add("paired");
             card.classList.remove("flipped");
-            card.removeEventListener;
         });
     } else {
         cardIds = [];
@@ -153,6 +154,16 @@ const checkCards = () => {
         }, 1000);
         flippedCards = 0;
     }
+    if (matchedPairs === numberOfPairs) {
+        endGame();
+    }
+};
+
+const endGame = () => {
+    setTimeout(() => {
+        game.innerHTML = "You Win!!";
+        game.classList.add("celebrate");
+    });
 };
 
 // displayCards() for testing purposes;

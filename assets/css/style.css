@@ -81,3 +81,9 @@
 .card.flipped .card-inner {
     transform: rotateY(180deg);
 }
+
+.celebrate {
+    font-size: 60px;
+    font-weight: bold;
+    color: gold;
+}
