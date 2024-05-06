@@ -29,6 +29,8 @@ const testPokeApi = async () => {
     const testCard = createCard(pokemons[0]);
     game.appendChild(testCard);
 }
+
+/** run tests */
 btn.addEventListener('click', testPokeApi);
 
 testPokeApi();
