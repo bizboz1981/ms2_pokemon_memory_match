@@ -1,5 +1,5 @@
 #container {
-    position:relative;
+    position: relative;
     display: flex;
     justify-content: center;
 }
@@ -14,7 +14,7 @@
 .card .card-inner {
     width: 150px;
     height: 150px;
-    background-color:cadetblue;
+    background-color: cadetblue;
     position: relative;
     position: relative;
     border-radius: 5px;
@@ -22,8 +22,8 @@
     justify-content: center;
     align-items: center;
     padding: 0;
-    margin:0;
-    box-sizing:border-box;
+    margin: 0;
+    box-sizing: border-box;
     transition: transform 0.6s;
     transform-style: preserve-3d;
 }
@@ -34,14 +34,15 @@
     margin: auto;
 }
 
-.card .card-front, .card .card-back {
-    position: absolute; 
-    width: 100%; 
-    height: 100%; 
-    top: 0; 
-    left: 0; 
-    display: flex; 
-    justify-content: center; 
+.card .card-front,
+.card .card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
     align-items: center;
     backface-visibility: hidden;
 }
@@ -58,10 +59,23 @@
 
 .card.flipped .card-front {
     z-index: 2;
+    transform: rotateY(180deg);
+}
+
+.card.paired .card-back {
+    display: none;
+}
+
+.card.paired .card-front {
+    z-index: 3;
+    transform: rotateY(180deg);
+}
+
+.card.paired .card-inner {
+    transform: rotateY(180deg);
 }
 
 .card .card-front {
-    transform: rotateY(180deg);
 }
 
 .card.flipped .card-inner {
