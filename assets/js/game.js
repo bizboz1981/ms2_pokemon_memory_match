@@ -114,12 +114,24 @@ function flipCard() {
     this.classList.add('flipped');
     flippedCards++;
     document.getElementById('flipped-cards').innerHTML = flippedCards;
+    if (flippedCards == 2) {
+        checkCards();
+    }
 };
 
 /** Game logic */
 
 const checkCards = () => {
-
+    let score = 0;
+    let cardIds = [];
+    const flippedToCheck = document.querySelector('.flipped');
+    flippedToCheck.forEach(function() {
+        cardIds.push(flippedToCheck.dataset.pokemon);
+    });
+    if (cardIds[0] === cardIds[1]) {
+        score++;
+        document.getElementById('score').innerHTML = score;
+    }
 }
 
 // displayCards() for testing purposes;
