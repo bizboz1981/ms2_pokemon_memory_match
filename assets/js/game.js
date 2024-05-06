@@ -111,6 +111,13 @@ const displayCards = async () => {
 };
 
 function flipCard() {
+    if (
+        this.classList.contains("flipped") ||
+        this.classList.contains("paired")
+    ) {
+        return;
+    }
+
     this.classList.add("flipped");
     flippedCards++;
     document.getElementById("flipped-cards").innerHTML = flippedCards;
