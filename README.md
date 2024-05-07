@@ -45,5 +45,6 @@ References/Resources
 - https://stackoverflow.com/questions/45960216/insert-array-of-elements-into-the-dom // insert array of elements to DOM?
 - https://photics.com/flipping-a-card-with-html-css-javascript/
 - https://stackoverflow.com/questions/55175428/the-this-keyword-not-working-with-arrow-functions /// cannot use 'this.' inside arrow functions, refactor to regular func
+- https://stackoverflow.com/questions/17123327/align-text-to-the-bottom-of-a-div - align text in cardgood 
 
 w3schools animation doesn't seem to work
