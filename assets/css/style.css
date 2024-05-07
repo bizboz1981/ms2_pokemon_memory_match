@@ -75,7 +75,12 @@
     transform: rotateY(180deg);
 }
 
-.card .card-front {
+.card-front h6 {
+    position: absolute;
+    bottom: -25px;
+    font-size: large;
+    font-weight: light;
+    font-family: monospace;
 }
 
 .card.flipped .card-inner {

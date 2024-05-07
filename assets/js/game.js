@@ -58,6 +58,11 @@ const createCard = (pokemon) => {
     spriteImage.src = pokemon.sprites.front_default;
     cardFront.appendChild(spriteImage);
 
+    // add pokemon name to card
+    let pokeName = document.createElement("h6");
+    pokeName.innerHTML = pokemon.name;
+    cardFront.appendChild(pokeName);
+
     // add static image to back
     const backImage = document.createElement("img");
     backImage.src =
