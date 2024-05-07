@@ -25,13 +25,16 @@
     - if the same, do not turn back over✅
     - increment score by 1✅
     - check if all cards are flipped✅
-  - 
 9.  Add turn counter
-10. add option for player to choose number of pairs (between 4 & 12)?
-11. Define end game (win/lose)
-12. Reset game
-13. New branch to attempt implementation of OOP / Pokemon class 
-14. Style the game & make responsive
+10. Add timer
+11. add option for player to choose number of pairs (between 4 & 12)?
+12. different levels?
+12. Define end game (win/lose) ✅
+13. Reset game
+14. New branch to attempt implementation of OOP / Pokemon class 
+15. Style the game & make responsive
+16. 'You Won' animation
+17. Pokemon name and type
 
 References/Resources
 - https://photics.com/flipping-a-card-with-html-css-javascript/
