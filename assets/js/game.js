@@ -5,6 +5,7 @@ let flippedCards = 0;
 let numberOfPairs = 8;
 let matchedPairs = 0;
 let score = 0;
+let turns = 0;
 
 /** there are over 1000 pokemon in the database */
 const randNum = () => {
@@ -130,8 +131,15 @@ function flipCard() {
     document.getElementById("flipped-cards").innerHTML = flippedCards;
     if (flippedCards == 2) {
         checkCards();
+        turns++;
+        incrementTurns();
     }
 }
+
+const incrementTurns = () => {
+    numTurns = document.getElementById("turns");
+    numTurns.innerText = turns;
+};
 
 /** Game logic */
 
@@ -169,7 +177,7 @@ const endGame = () => {
     setTimeout(() => {
         game.innerHTML = "You Win!!";
         game.classList.add("celebrate");
-    }, 600);
+    }, 2000);
 };
 
 // displayCards() for testing purposes;
