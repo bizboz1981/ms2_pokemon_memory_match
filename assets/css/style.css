@@ -1,5 +1,41 @@
 @import url("https://fonts.googleapis.com/css2?family=Maven+Pro:wght@400..900&display=swap");
 
+#background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: -10;
+}
+
+#background:before {
+    content: "";
+    background-image: url("../img/pokemonForest.jpg");
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 0.5;
+}
+#header {
+    position: relative;
+    font-size: 4em;
+    font-family: "Maven Pro", monospace;
+    color: gold;
+    text-align: center;
+}
+
+#btn {
+    position: relative;
+    z-index: 1100;
+    color: red;
+}
+
 #container {
     position: relative;
     display: flex;
@@ -15,109 +51,91 @@
 
 .card[data-pokemon-type="bug"] .card-front {
     background-color: #739f40;
-    opacity: 0.8;
     border-radius: 5px;
 }
 
 .card[data-pokemon-type="dragon"] .card-front {
     background-color: #52a4cf;
-    opacity: 0.8;
     border-radius: 5px;
 }
 
 .card[data-pokemon-type="fairy"] .card-front {
     background-color: #fdb9e9;
-    opacity: 0.8;
     border-radius: 5px;
 }
 
 .card[data-pokemon-type="fire"] .card-front {
     background-color: #fd7d25;
-    opacity: 0.8;
     border-radius: 5px;
 }
 
 .card[data-pokemon-type="ghost"] .card-front {
     background-color: #fd7d25;
-    opacity: 0.8;
     border-radius: 5px;
 }
 
 .card[data-pokemon-type="ground"] .card-front {
     background-color: #ab9843;
-    opacity: 0.8;
     border-radius: 5px;
 }
 
 .card[data-pokemon-type="normal"] .card-front {
     background-color: #a3acaf;
-    opacity: 0.8;
     border-radius: 5px;
 }
 
 .card[data-pokemon-type="psychic"] .card-front {
     background-color: #f366b9;
-    opacity: 0.8;
     border-radius: 5px;
 }
 
 .card[data-pokemon-type="steel"] .card-front {
     background-color: #9eb7b9;
-    opacity: 0.8;
     border-radius: 5px;
 }
 
 .card[data-pokemon-type="dark"] .card-front {
     background-color: #707070;
-    opacity: 0.8;
     border-radius: 5px;
 }
 
 .card[data-pokemon-type="electric"] .card-front {
     background-color: #eed535;
-    opacity: 0.8;
     border-radius: 5px;
 }
 
 .card[data-pokemon-type="fighting"] .card-front {
     background-color: #d56724;
-    opacity: 0.8;
     border-radius: 5px;
 }
 
 .card[data-pokemon-type="flying"] .card-front {
     background-color: #3cc7ef;
-    opacity: 0.8;
     border-radius: 5px;
 }
 
 .card[data-pokemon-type="grass"] .card-front {
     background-color: #9bcc50;
-    opacity: 0.8;
     border-radius: 5px;
 }
 
 .card[data-pokemon-type="ice"] .card-front {
     background-color: #51c3e7;
-    opacity: 0.8;
     border-radius: 5px;
 }
 
 .card[data-pokemon-type="poison"] .card-front {
     background-color: #b97fc8;
-    opacity: 0.8;
     border-radius: 5px;
 }
 
 .card[data-pokemon-type="rock"] .card-front {
     background-color: #a38c22;
-    opacity: 0.8;
     border-radius: 5px;
 }
 
 .card[data-pokemon-type="water"] .card-front {
     background-color: #4592c3;
-    opacity: 0.8;
     border-radius: 5px;
 }
 
@@ -160,7 +178,7 @@
 
 .card .card-back {
     z-index: 2;
-    background-color: goldenrod;
+    background-color: silver;
     border-radius: 5px;
 }
 
