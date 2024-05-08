@@ -49,5 +49,6 @@ References/Resources
 - https://stackoverflow.com/questions/17123327/align-text-to-the-bottom-of-a-div - align text in cardgood 
 - https://css-tricks.com/almanac/selectors/a/attribute/ - use data attr as css selectors
 - https://www.pokemon.com/us/pokemon-virtual-backgrounds/ = background image
+- https://stackoverflow.com/questions/6890218/css-background-image-opacity - background opacity
 
 w3schools animation doesn't seem to work
