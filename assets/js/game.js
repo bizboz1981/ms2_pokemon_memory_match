@@ -71,6 +71,7 @@ const createCard = (pokemon) => {
 
     // add unique id for card div
     card.setAttribute("data-pokemon", pokemon.name);
+    card.setAttribute("data-pokemon-type", pokemon.types[0].type.name);
 
     //set structure
     card.appendChild(cardInner);
