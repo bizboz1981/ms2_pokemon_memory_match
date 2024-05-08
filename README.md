@@ -26,15 +26,16 @@
     - increment score by 1✅
     - check if all cards are flipped✅
 9.  Add turn counter
-10. Add timer
-11. add option for player to choose number of pairs (between 4 & 12)?
-12. different levels?
-12. Define end game (win/lose) ✅
-13. Reset game
-14. New branch to attempt implementation of OOP / Pokemon class 
-15. Style the game & make responsive
-16. 'You Won' animation
-17. Pokemon name and type
+10. Add leaderboard
+11. Add timer
+12. add option for player to choose number of pairs (between 4 & 12)?
+13. different levels?
+14. Define end game (win/lose) ✅
+15. Reset game
+16. New branch to attempt implementation of OOP / Pokemon class 
+17. Style the game & make responsive
+18. 'You Won' animation
+19. Pokemon name and type
 
 References/Resources
 - https://photics.com/flipping-a-card-with-html-css-javascript/
@@ -46,5 +47,7 @@ References/Resources
 - https://photics.com/flipping-a-card-with-html-css-javascript/
 - https://stackoverflow.com/questions/55175428/the-this-keyword-not-working-with-arrow-functions /// cannot use 'this.' inside arrow functions, refactor to regular func
 - https://stackoverflow.com/questions/17123327/align-text-to-the-bottom-of-a-div - align text in cardgood 
+- https://css-tricks.com/almanac/selectors/a/attribute/ - use data attr as css selectors
+- https://www.pokemon.com/us/pokemon-virtual-backgrounds/ = background image
 
 w3schools animation doesn't seem to work
