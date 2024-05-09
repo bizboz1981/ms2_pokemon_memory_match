@@ -201,7 +201,8 @@ function timer() {
     let timeDiv = document.getElementById("timer");
     intervalId = setInterval(function () {
         if (totalSec < 60) {
-            sec = totalSec;
+            min = "00";
+            sec = String(totalSec).padStart(2, "0");
         } else {
             min = String(Math.floor(totalSec / 60)).padStart(2, "0");
             sec = String(totalSec % 60).padStart(2, "0");
