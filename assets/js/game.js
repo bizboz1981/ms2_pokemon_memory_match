@@ -7,6 +7,7 @@ let matchedPairs = 0;
 let score = 0;
 let turns = 0;
 let clicks = 0;
+let intervalId;
 
 /** there are over 1000 pokemon in the database */
 const randNum = () => {
@@ -175,7 +176,7 @@ const checkCards = () => {
         flippedCards = 0;
     }
     if (matchedPairs === numberOfPairs) {
-        clearInterval(timer);
+        clearInterval(intervalId);
         endGame();
     }
 };
@@ -194,9 +195,18 @@ btn.addEventListener("click", () => {
 });
 
 function timer() {
-    var sec = 0;
-    var timer = setInterval(function () {
-        document.getElementById("timer").innerHTML = "00:" + sec;
-        sec++;
+    let totalSec = 0;
+    let min = 0;
+    let sec = 0;
+    let timeDiv = document.getElementById("timer");
+    intervalId = setInterval(function () {
+        if (totalSec < 60) {
+            sec = totalSec;
+        } else {
+            min = String(Math.floor(totalSec / 60)).padStart(2, "0");
+            sec = String(totalSec % 60).padStart(2, "0");
+        }
+        timeDiv.innerHTML = `${min}:${sec}`;
+        totalSec++;
     }, 1000);
 }
