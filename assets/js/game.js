@@ -65,7 +65,6 @@ const createCard = (pokemon) => {
     let pokeName = document.createElement("h6");
     pokeName.innerHTML = pokemon.name;
     cardFront.appendChild(pokeName);
-    resizeText(pokeName);
 
     // add static image to back
     const backImage = document.createElement("img");
@@ -117,6 +116,9 @@ const displayCards = async () => {
     shuffledDeck.forEach((card) => {
         game.appendChild(card);
         card.addEventListener("click", flipCard);
+
+        let pokeName = card.querySelector("h6");
+        resizeText(pokeName);
     });
     // handle visibility and flipping animation with css
 };
@@ -214,9 +216,15 @@ function timer() {
 }
 
 const resizeText = (text) => {
-    let cardSize = document.getElementsByClassName('card').offsetWidth;
-    let fontSize = parseInt(text.style.fontSize);
+    let card = document.getElementsByClassName("card")[0];
+    if (!card) {
+        console.log("no card class found");
+        return;
+    }
+    let cardSize = document.getElementsByClassName("card")[0].offsetWidth;
+    let fontSize = parseInt(window.getComputedStyle(text).fontSize);
     while (text.offsetWidth > cardSize) {
         fontSize--;
+        text.style.fontSize = `${fontSize}px`;
     }
 };
