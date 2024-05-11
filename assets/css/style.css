@@ -211,6 +211,7 @@
     font-weight: light;
     font-family: "Maven Pro";
     letter-spacing: 2px;
+    white-space: nowrap;
 }
 
 .card.flipped .card-inner {

@@ -65,6 +65,7 @@ const createCard = (pokemon) => {
     let pokeName = document.createElement("h6");
     pokeName.innerHTML = pokemon.name;
     cardFront.appendChild(pokeName);
+    resizeText(pokeName);
 
     // add static image to back
     const backImage = document.createElement("img");
@@ -211,3 +212,11 @@ function timer() {
         totalSec++;
     }, 1000);
 }
+
+const resizeText = (text) => {
+    let cardSize = document.getElementsByClassName('card').offsetWidth;
+    let fontSize = parseInt(text.style.fontSize);
+    while (text.offsetWidth > cardSize) {
+        fontSize--;
+    }
+};
