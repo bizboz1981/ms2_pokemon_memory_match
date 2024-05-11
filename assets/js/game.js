@@ -215,6 +215,7 @@ function timer() {
     }, 1000);
 }
 
+// resize nanes of pokemon that are wider than card
 const resizeText = (text) => {
     let card = document.getElementsByClassName("card")[0];
     if (!card) {
