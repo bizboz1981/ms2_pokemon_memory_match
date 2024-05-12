@@ -176,20 +176,24 @@ const checkCards = () => {
     }
 };
 
+// Handle the end of the game
 const endGame = () => {
     setTimeout(() => {
+        saveHighScores(score);
+        showHighScore();
         game.innerHTML = "You Win!!";
         game.classList.add("celebrate");
     }, 2000);
 };
 
-// displayCards() for testing purposes;
+// functionality for 'new game' buttom
 btn.addEventListener("click", () => {
     game.innerHTML = "";
     displayCards();
     resetGameStats();
 });
 
+// create timer and increment in seconds
 function timer() {
     let min = 0;
     let sec = 0;
@@ -223,8 +227,6 @@ const resizeText = (text) => {
 };
 
 // calculate score
-// % correct guesses = numPairs/numTurns * 100
-// bonus time points = (300 - totalSec) * 10
 const calculateScore = () => {
     percCorrect = Math.floor(numberOfPairs / turns) * 100;
     bonusTimePts = (300 - totalSec) * 10;
@@ -232,28 +234,33 @@ const calculateScore = () => {
     scoreElement.innerText = score.toString();
 };
 
-// scoreboard
-// create array to hold high scores
-// sort array
-// clear game div
-// create list elements from array
-// set inner html of high-scores div to list
+// save highscores to local storage
+const saveHighScores = (score) => {
+    let highScores = JSON.parse(localStorage.getItem("highScores")) || []; // if highscores doesn't exist in local storage, create empty array
+    highScores.push(score);
+    highScores.sort((a, b) => b - a); // sort numerically
+    highScores = highScores.slice(0, 5);
+    localStorage.setItem("highScores", JSON.stringify(highScores)); // push array to local storage
+};
+
+// display list of highscores retrieved from local storage
 const showHighScore = () => {
     game.innerHTML = "";
-    let highScores = [];
+    let highScores = JSON.parse(localStorage.getItem("highScores")) || [];
     let highScoreDiv = document.getElementById("high-scores");
-    highScores.push(score);
-    highScores.sort();
+    highScoreDiv.innerHTML = "";
     for (i = 0; i < 5; i++) {
         highScoreDiv.innerHTML += `<li>${highScores[i]}</li>`;
     }
 };
 
+// Call this function so that 'new game' buttom resets the game without having to refresh page
 const resetGameStats = () => {
     turns = 0;
     document.getElementById("turns").innerHTML = "0";
     totalSec = 0;
     document.getElementById("timer").innerHTML = "00:00";
     document.getElementById("score").innerHTML = "0";
-    hide("high-scores");
+    let highScoreDiv = document.getElementById("high-scores");
+    highScoreDiv.innerHTML = "";
 };
