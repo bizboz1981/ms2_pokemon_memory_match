@@ -134,7 +134,6 @@ function flipCard() {
     this.classList.add("flipped");
     clicks++;
     flippedCards++;
-    document.getElementById("flipped-cards").innerHTML = flippedCards;
     if (flippedCards == 2) {
         checkCards();
         turns++;
