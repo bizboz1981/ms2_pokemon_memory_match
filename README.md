@@ -60,6 +60,7 @@ References/Resources
 -   https://stackoverflow.com/questions/31559469/how-to-create-a-simple-javascript-timer - add a timer
 -   https://developer.mozilla.org/en-US/docs/Web/API/clearInterval - clear timer
 -   https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/padStart - format timer
--
+-   https://dev.to/jankapunkt/make-text-fit-it-s-parent-size-using-javascript-m40#fixed-width-auto-height - dynamically resize text
+- https://stackoverflow.com/questions/47817325/storing-my-game-score-in-local-storage - local storage
 
 w3schools animation doesn't seem to work
