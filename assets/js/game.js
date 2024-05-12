@@ -1,6 +1,7 @@
 const pokeBaseURL = "https://pokeapi.co/api/v2/pokemon/";
 const game = document.getElementById("game");
 const btn = document.getElementById("btn");
+const scoreElement = document.getElementById("score");
 let flippedCards = 0;
 let numberOfPairs = 8;
 let matchedPairs = 0;
@@ -8,6 +9,7 @@ let score = 0;
 let turns = 0;
 let clicks = 0;
 let intervalId;
+let totalSec = 0;
 
 /** there are over 1000 pokemon in the database */
 const randNum = () => {
@@ -178,8 +180,8 @@ const checkCards = () => {
     }
     if (matchedPairs === numberOfPairs) {
         clearInterval(intervalId);
-        endGame();
         calculateScore();
+        endGame();
     }
 };
 
@@ -197,7 +199,6 @@ btn.addEventListener("click", () => {
 });
 
 function timer() {
-    let totalSec = 0;
     let min = 0;
     let sec = 0;
     let timeDiv = document.getElementById("timer");
@@ -236,5 +237,5 @@ const calculateScore = () => {
     percCorrect = Math.floor(numberOfPairs / turns) * 100;
     bonusTimePts = (300 - totalSec) * 10;
     score = percCorrect + bonusTimePts;
-    document.getElementById("score").innerText = score.toString();
+    scoreElement.innerText = score.toString();
 };
