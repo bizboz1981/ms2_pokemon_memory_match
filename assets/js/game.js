@@ -16,16 +16,6 @@ const randNum = () => {
     return Math.ceil(Math.random() * 1000);
 };
 
-/** Define Pokemon Class */
-class Pokemon {
-    constructor(name, sprite, type) {
-        this.name = name;
-        this.sprite = sprite;
-        this.type = type;
-    }
-    // method to create card to go here?
-}
-
 /** This function performs an asynchronous loading of required number of pokemon
  * We use async so that all pokemon are returned at the same time without pausing the rest of the code
  * Must return an array of pokemon data in json format
@@ -182,6 +172,7 @@ const checkCards = () => {
         clearInterval(intervalId);
         calculateScore();
         endGame();
+        showHighScore();
     }
 };
 
@@ -196,6 +187,7 @@ const endGame = () => {
 btn.addEventListener("click", () => {
     game.innerHTML = "";
     displayCards();
+    resetGameStats();
 });
 
 function timer() {
@@ -238,4 +230,30 @@ const calculateScore = () => {
     bonusTimePts = (300 - totalSec) * 10;
     score = percCorrect + bonusTimePts;
     scoreElement.innerText = score.toString();
+};
+
+// scoreboard
+// create array to hold high scores
+// sort array
+// clear game div
+// create list elements from array
+// set inner html of high-scores div to list
+const showHighScore = () => {
+    game.innerHTML = "";
+    let highScores = [];
+    let highScoreDiv = document.getElementById("high-scores");
+    highScores.push(score);
+    highScores.sort();
+    for (i = 0; i < 5; i++) {
+        highScoreDiv.innerHTML += `<li>${highScores[i]}</li>`;
+    }
+};
+
+const resetGameStats = () => {
+    turns = 0;
+    document.getElementById("turns").innerHTML = "0";
+    totalSec = 0;
+    document.getElementById("timer").innerHTML = "00:00";
+    document.getElementById("score").innerHTML = "0";
+    hide("high-scores");
 };
