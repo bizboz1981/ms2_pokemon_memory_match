@@ -160,7 +160,6 @@ const checkCards = () => {
     });
 
     if (cardIds[0] === cardIds[1]) {
-        score++;
         matchedPairs++;
         document.getElementById("score").innerHTML = score;
         flippedCards = 0;
@@ -180,6 +179,7 @@ const checkCards = () => {
     if (matchedPairs === numberOfPairs) {
         clearInterval(intervalId);
         endGame();
+        calculateScore();
     }
 };
 
@@ -227,4 +227,14 @@ const resizeText = (text) => {
         fontSize--;
         text.style.fontSize = `${fontSize}px`;
     }
+};
+
+// calculate score
+// % correct guesses = numPairs/numTurns * 100
+// bonus time points = (300 - totalSec) * 10
+const calculateScore = () => {
+    percCorrect = Math.floor(numberOfPairs / turns) * 100;
+    bonusTimePts = (300 - totalSec) * 10;
+    score = percCorrect + bonusTimePts;
+    document.getElementById("score").innerText = score.toString();
 };
