@@ -6,7 +6,6 @@ const dropdown = document.getElementById("dropdown");
 // listen for change in number of pairs
 dropdown.addEventListener("change", function () {
     numberOfPairs = parseInt(this.value);
-    setGridDimensions();
 });
 
 // declare global variables
@@ -232,8 +231,10 @@ const endGame = () => {
 // functionality for 'new game' buttom
 btn.addEventListener("click", () => {
     game.innerHTML = "";
+    game.classList.remove("celebrate");
     displayCards(numberOfPairs);
     resetGameStats();
+    setGridDimensions();
 });
 
 // create timer and increment in seconds
@@ -266,6 +267,7 @@ const resizeText = (text) => {
     while (text.offsetWidth > cardSize) {
         fontSize--;
         text.style.fontSize = `${fontSize}px`;
+        text.style.bottom = "-10px";
     }
 };
 
