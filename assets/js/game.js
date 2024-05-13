@@ -213,7 +213,6 @@ const checkCards = () => {
     if (matchedPairs === numberOfPairs) {
         clearInterval(intervalId);
         endGame();
-        showHighScore();
     }
 };
 
@@ -229,13 +228,15 @@ const endGame = () => {
 };
 
 // functionality for 'new game' buttom
-btn.addEventListener("click", () => {
+const newGame = () => {
     game.innerHTML = "";
     game.classList.remove("celebrate");
     displayCards(numberOfPairs);
     resetGameStats();
     setGridDimensions();
-});
+};
+
+btn.addEventListener("click", newGame);
 
 // create timer and increment in seconds
 function timer() {
@@ -301,11 +302,16 @@ const showHighScore = () => {
 
 // Call this function so that 'new game' buttom resets the game without having to refresh page
 const resetGameStats = () => {
+    clearInterval(intervalId);
+    clicks = 0;
     turns = 0;
+    matchedPairs = 0;
     document.getElementById("turns").innerHTML = "0";
     totalSec = 0;
     document.getElementById("timer").innerHTML = "00:00";
+    score = 0;
     document.getElementById("score").innerHTML = "0";
     let highScoreDiv = document.getElementById("high-scores");
     highScoreDiv.innerHTML = "";
+    intervalId = null;
 };
