@@ -2,8 +2,16 @@ const pokeBaseURL = "https://pokeapi.co/api/v2/pokemon/";
 const game = document.getElementById("game");
 const btn = document.getElementById("btn");
 const scoreElement = document.getElementById("score");
+const dropdown = document.getElementById("dropdown");
+// listen for change in number of pairs
+dropdown.addEventListener("change", function () {
+    numberOfPairs = parseInt(this.value);
+    setGridDimensions();
+});
+
+// declare global variables
 let flippedCards = 0;
-let numberOfPairs = 8;
+let numberOfPairs = parseInt(dropdown.value);
 let matchedPairs = 0;
 let score = 0;
 let turns = 0;
@@ -16,14 +24,49 @@ const randNum = () => {
     return Math.ceil(Math.random() * 1000);
 };
 
+const setGridDimensions = () => {
+    let numberOfColumns;
+    let numberOfRows;
+    switch (numberOfPairs) {
+        case 4:
+            numberOfColumns = 4;
+            numberOfRows = 2;
+            break;
+        case 6:
+            numberOfColumns = 4;
+            numberOfRows = 3;
+            break;
+        case 8:
+            numberOfColumns = 4;
+            numberOfRows = 4;
+            break;
+        case 10:
+            numberOfColumns = 5;
+            numberOfRows = 4;
+            break;
+        case 12:
+            numberOfColumns = 6;
+            numberOfRows = 4;
+            break;
+        default:
+            numberOfColumns = 6;
+            numberOfRows = 4;
+            break;
+    }
+
+    // set number of columns
+    game.style.gridTemplateColumns = `repeat(${numberOfColumns}, 1fr)`;
+    game.style.gridTemplateRows = `repeat(${numberOfRows}, 1fr)`;
+};
+
 /** This function performs an asynchronous loading of required number of pokemon
  * We use async so that all pokemon are returned at the same time without pausing the rest of the code
  * Must return an array of pokemon data in json format
  * Inspired by https://github.com/jamesqquick/javascript-memory-match/blob/master/app.js
  */
-const loadPokemon = async (numPairs) => {
+const loadPokemon = async (numberOfPairs) => {
     const randIds = new Set(); // Sets cannot contain duplicate values, so will be guarantee unique pokemon
-    while (randIds.size < numPairs) {
+    while (randIds.size < numberOfPairs) {
         // Not 'numPairs + 1' - we want this loop to exit when length = numPairs, not run again as then we'd have 1 too many
         randIds.add(randNum());
     }
@@ -92,11 +135,11 @@ const shuffleArray = (arr) => {
     return arr;
 };
 
-const displayCards = async () => {
+const displayCards = async (numberOfPairs) => {
     // create empty array to hold cards
     let cardDeck = [];
     // create an array of pokemon by calling loadPokemon (with the argument set globally as numberOfPairs)
-    let pokemons = await loadPokemon(8);
+    let pokemons = await loadPokemon(numberOfPairs);
     // call createCard on each element if the array returned by loadPokemon and push to array twice
     pokemons.forEach((pokemon) => {
         cardDeck.push(createCard(pokemon));
@@ -170,7 +213,6 @@ const checkCards = () => {
     }
     if (matchedPairs === numberOfPairs) {
         clearInterval(intervalId);
-        calculateScore();
         endGame();
         showHighScore();
     }
@@ -179,6 +221,7 @@ const checkCards = () => {
 // Handle the end of the game
 const endGame = () => {
     setTimeout(() => {
+        calculateScore();
         saveHighScores(score);
         showHighScore();
         game.innerHTML = "You Win!!";
@@ -189,7 +232,7 @@ const endGame = () => {
 // functionality for 'new game' buttom
 btn.addEventListener("click", () => {
     game.innerHTML = "";
-    displayCards();
+    displayCards(numberOfPairs);
     resetGameStats();
 });
 
@@ -236,7 +279,7 @@ const calculateScore = () => {
 
 // save highscores to local storage
 const saveHighScores = (score) => {
-    let highScores = JSON.parse(localStorage.getItem("highScores")) || []; // if highscores doesn't exist in local storage, create empty array
+    let highScores = JSON.parse(localStorage.getItem("highScores")) || []; // if highscores doesn't exist in local storage, create empty object
     highScores.push(score);
     highScores.sort((a, b) => b - a); // sort numerically
     highScores = highScores.slice(0, 5);
@@ -249,7 +292,7 @@ const showHighScore = () => {
     let highScores = JSON.parse(localStorage.getItem("highScores")) || [];
     let highScoreDiv = document.getElementById("high-scores");
     highScoreDiv.innerHTML = "";
-    for (i = 0; i < 5; i++) {
+    for (i = 0; i < highScores.length; i++) {
         highScoreDiv.innerHTML += `<li>${highScores[i]}</li>`;
     }
 };
