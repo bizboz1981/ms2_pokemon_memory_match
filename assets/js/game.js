@@ -1,3 +1,5 @@
+const backupPokemon = require("./backupPokemon.json");
+
 const pokeBaseURL = "https://pokeapi.co/api/v2/pokemon/";
 const game = document.getElementById("game");
 const btn = document.getElementById("btn");
@@ -64,14 +66,18 @@ const setGridDimensions = () => {
  * Inspired by https://github.com/jamesqquick/javascript-memory-match/blob/master/app.js
  */
 const loadPokemon = async (numberOfPairs) => {
-    const randIds = new Set(); // Sets cannot contain duplicate values, so will be guarantee unique pokemon
-    while (randIds.size < numberOfPairs) {
-        // Not 'numPairs + 1' - we want this loop to exit when length = numPairs, not run again as then we'd have 1 too many
-        randIds.add(randNum());
+    try {
+        const randIds = new Set(); // Sets cannot contain duplicate values, so will be guarantee unique pokemon
+        while (randIds.size < numberOfPairs) {
+            // Not 'numPairs + 1' - we want this loop to exit when length = numPairs, not run again as then we'd have 1 too many
+            randIds.add(randNum());
+        }
+        const pokePromises = [...randIds].map((id) => fetch(pokeBaseURL + id)); // Spread the randIds set into an array which supports .map. For each id in the array, fetch a promise from the base URL with random id appended. Returns an array of promises
+        const results = await Promise.all(pokePromises); // returns a single promise that resolves when all pokePromises have resolved; returns an array
+        return await Promise.all(results.map((res) => res.json()));
+    } catch {
+        return backupPokemon.slice(0, numberOfPairs);
     }
-    const pokePromises = [...randIds].map((id) => fetch(pokeBaseURL + id)); // Spread the randIds set into an array which supports .map. For each id in the array, fetch a promise from the base URL with random id appended. Returns an array of promises
-    const results = await Promise.all(pokePromises); // returns a single promise that resolves when all pokePromises have resolved; returns an array
-    return await Promise.all(results.map((res) => res.json()));
 };
 
 /** Create a parent card div with 'front' and 'back' children
