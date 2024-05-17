@@ -256,7 +256,7 @@ const backupPokemon = [
     },
 ];
 
-const pokeBaseURL = "https://pokeapi.co/api/v8/pokemon/";
+const pokeBaseURL = "https://pokeapi.co/api/v2/pokemon/";
 const game = document.getElementById("game");
 const btn = document.getElementById("btn");
 const scoreElement = document.getElementById("score");
