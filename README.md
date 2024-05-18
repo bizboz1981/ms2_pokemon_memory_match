@@ -61,8 +61,10 @@ References/Resources
 -   https://developer.mozilla.org/en-US/docs/Web/API/clearInterval - clear timer
 -   https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/padStart - format timer
 -   https://dev.to/jankapunkt/make-text-fit-it-s-parent-size-using-javascript-m40#fixed-width-auto-height - dynamically resize text
-- https://stackoverflow.com/questions/47817325/storing-my-game-score-in-local-storage - local storage
-- https://puzzles.bestforpuzzles.com/games/best-of-puzzles-codeword - scoring calculation
-
+-   https://stackoverflow.com/questions/47817325/storing-my-game-score-in-local-storage - local storage
+-   https://puzzles.bestforpuzzles.com/games/best-of-puzzles-codeword - scoring calculation
+-   https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/try...catch - try...catch
+-   https://stackoverflow.com/questions/56974852/how-to-catch-the-status-code-when-fetch-fails-using-async-await - catch http response codes
+-
 
 w3schools animation doesn't seem to work
