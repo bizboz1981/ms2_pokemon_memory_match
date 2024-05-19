@@ -246,3 +246,13 @@
     top: 30vh;
     left: 40%;
 }
+
+@media screen and (orientation: portrait) {
+    #game {
+        display: grid;
+        gap: 10px;
+        width: fit-content;
+        margin: auto;
+        grid-template-columns: repeat(4, 1fr) !important;
+    }
+}
