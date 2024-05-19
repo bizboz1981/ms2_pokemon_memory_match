@@ -90,6 +90,11 @@
     margin: auto;
 }
 
+#high-scores {
+    font-family: "Maven Pro", monospace;
+    font-size: 2em;
+}
+
 .card[data-pokemon-type="bug"] .card-front {
     background-color: #739f40;
     border-radius: 5px;
@@ -311,5 +316,9 @@
 
     #btn {
         font-size: x-small !important;
+    }
+
+    .celebrate {
+        font-size: 2em;
     }
 }

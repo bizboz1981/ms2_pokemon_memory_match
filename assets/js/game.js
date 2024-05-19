@@ -558,7 +558,7 @@ const saveHighScores = (score) => {
 
 // display list of highscores retrieved from local storage
 const showHighScore = () => {
-    game.innerHTML = "";
+    game.style.display = "none";
     let highScores = JSON.parse(localStorage.getItem("highScores")) || [];
     let highScoreDiv = document.getElementById("high-scores");
     highScoreDiv.innerHTML = "";
