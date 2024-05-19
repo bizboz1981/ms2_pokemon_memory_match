@@ -161,7 +161,6 @@
 .card .card-inner {
     width: 150px;
     height: 150px;
-    /* background-color: cadetblue; */
     position: relative;
     position: relative;
     border-radius: 5px;
@@ -254,5 +253,14 @@
         width: fit-content;
         margin: auto;
         grid-template-columns: repeat(4, 1fr) !important;
+    }
+
+    .card .card-inner {
+        width: 100px;
+        height: 100px;
+    }
+
+    .card img {
+        width: 75px;
     }
 }
