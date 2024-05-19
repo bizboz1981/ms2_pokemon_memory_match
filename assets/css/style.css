@@ -32,6 +32,8 @@
     text-align: center;
     margin-bottom: 10px;
     padding-bottom: 0px;
+    text-shadow: -1px -1px 0 #ffa500, 1px -1px 0 #ffa500, -1px 1px 0 #ffa500,
+        1px 1px 0 #ffa500;
 }
 
 #stats-container {
@@ -50,10 +52,30 @@
     font-size: 2em;
 }
 
+#new-game {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: space-evenly;
+    position: relative;
+    left: 0;
+    top: 0;
+    margin-top: 10px;
+    font-family: "Maven Pro", monospace;
+    font-size: 2em;
+}
+
 #btn {
     position: relative;
     z-index: 1100;
-    color: red;
+    color: gold;
+    text-shadow: -1px -1px 0 #ffa500, 1px -1px 0 #ffa500, -1px 1px 0 #ffa500,
+        1px 1px 0 #ffa500;
+    border-radius: 15%;
+    font-weight: 100;
+    background-color: rgb(129, 223, 129);
+    margin: 15px;
+    border-color: rgb(129, 223, 129);
 }
 
 #container {
@@ -246,7 +268,7 @@
     left: 40%;
 }
 
-@media screen and (orientation: portrait) {
+@media screen and (max-width: 576px) and (orientation: portrait) {
     #game {
         display: grid;
         gap: 10px;
@@ -256,11 +278,38 @@
     }
 
     .card .card-inner {
-        width: 100px;
-        height: 100px;
+        width: 75px;
+        height: 75px;
     }
 
     .card img {
-        width: 75px;
+        width: 50px;
+    }
+
+    .card-front h6 {
+        position: absolute;
+        bottom: -10px;
+        font-size: 9px;
+        font-weight: light;
+        font-family: "Maven Pro";
+        letter-spacing: 1px;
+        white-space: nowrap;
+    }
+
+    #header {
+        font-size: 2em;
+    }
+
+    .stats {
+        font-family: "Maven Pro", monospace;
+        font-size: 1em;
+    }
+
+    #new-game {
+        font-size: 1em;
+    }
+
+    #btn {
+        font-size: x-small !important;
     }
 }
