@@ -65,6 +65,6 @@ References/Resources
 -   https://puzzles.bestforpuzzles.com/games/best-of-puzzles-codeword - scoring calculation
 -   https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/try...catch - try...catch
 -   https://stackoverflow.com/questions/56974852/how-to-catch-the-status-code-when-fetch-fails-using-async-await - catch http response codes
--
+- https://stackoverflow.com/questions/4919076/outline-effect-to-text - text outline
 
 w3schools animation doesn't seem to work
