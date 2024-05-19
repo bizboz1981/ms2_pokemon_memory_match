@@ -39,7 +39,7 @@
 14. Define end game (win/lose) ✅
 15. Reset game ✅
 16. New branch to attempt implementation of OOP / Pokemon class 💀
-17. Style the game & make responsive
+17. Style the game & make responsive 🔸
 18. 'You Won' animation
 19. Pokemon name and type ✅
 
@@ -66,5 +66,7 @@ References/Resources
 -   https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/try...catch - try...catch
 -   https://stackoverflow.com/questions/56974852/how-to-catch-the-status-code-when-fetch-fails-using-async-await - catch http response codes
 - https://stackoverflow.com/questions/4919076/outline-effect-to-text - text outline
+- https://www.w3schools.com/jsref/prop_style_display.asp - set display to none instead of innerHTML = "";
+- https://stackoverflow.com/questions/11144274/javascript-changing-innerhtml-vs-display - innerHTML vs display
 
 w3schools animation doesn't seem to work
