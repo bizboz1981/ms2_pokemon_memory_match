@@ -68,5 +68,7 @@ References/Resources
 - https://stackoverflow.com/questions/4919076/outline-effect-to-text - text outline
 - https://www.w3schools.com/jsref/prop_style_display.asp - set display to none instead of innerHTML = "";
 - https://stackoverflow.com/questions/11144274/javascript-changing-innerhtml-vs-display - innerHTML vs display
+- https://getbootstrap.com/docs/5.3/components/navbar/ - bootstrap navbar
+- https://getcssscan.com/css-buttons-examples - pre-styled button
 
 w3schools animation doesn't seem to work
