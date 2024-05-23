@@ -1,10 +1,12 @@
 import { backupPokemon } from "./backupPokemon.js";
-const pokeBaseURL = "https://pokeapi.co/api/v8/pokemon/";
+const pokeBaseURL = "https://pokeapi.co/api/v2/pokemon/";
 const game = document.getElementById("game");
 const btn = document.getElementById("btn");
 const scoreElement = document.getElementById("score");
+const backImgLink =
+    "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/00749e58-41ca-4e6e-add6-55da22501c91/dexc4ag-47c47f39-89a4-477e-919c-f13d72286a64.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzAwNzQ5ZTU4LTQxY2EtNGU2ZS1hZGQ2LTU1ZGEyMjUwMWM5MVwvZGV4YzRhZy00N2M0N2YzOS04OWE0LTQ3N2UtOTE5Yy1mMTNkNzIyODZhNjQucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.OHUH-qup0p6ki77yTrbOcet5UrnBXLDSZ67SoahcC8Q";
 const dropdown = document.getElementById("dropdown");
-
+let numberOfPairs = parseInt(dropdown.value);
 // listen for change in number of pairs and update variable accordingly
 dropdown.addEventListener("change", function () {
     numberOfPairs = parseInt(this.value);
@@ -12,7 +14,6 @@ dropdown.addEventListener("change", function () {
 
 // declare global variables
 let flippedCards = 0;
-let numberOfPairs = parseInt(dropdown.value);
 let matchedPairs = 0;
 let score = 0;
 let turns = 0;
@@ -113,9 +114,7 @@ const createCard = (pokemon) => {
 
     // add static image to back
     const backImage = document.createElement("img");
-    backImage.src =
-        "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/00749e58-41ca-4e6e-add6-55da22501c91/dexc4ag-47c47f39-89a4-477e-919c-f13d72286a64.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzAwNzQ5ZTU4LTQxY2EtNGU2ZS1hZGQ2LTU1ZGEyMjUwMWM5MVwvZGV4YzRhZy00N2M0N2YzOS04OWE0LTQ3N2UtOTE5Yy1mMTNkNzIyODZhNjQucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.OHUH-qup0p6ki77yTrbOcet5UrnBXLDSZ67SoahcC8Q";
-
+    backImage.src = backImgLink;
     cardBack.appendChild(backImage);
 
     // add unique id for card div
@@ -148,7 +147,7 @@ const shuffleArray = (arr) => {
 
 const displayCards = async (numberOfPairs) => {
     // create empty array to hold cards
-    let cardDeck = [];
+    const cardDeck = [];
     // create an array of pokemon by calling loadPokemon (with the argument set globally as numberOfPairs)
     let pokemons = await loadPokemon(numberOfPairs);
     // call createCard on each element if the array returned by loadPokemon and push to array twice
@@ -280,7 +279,7 @@ const resizeText = (text) => {
     while (text.offsetWidth > cardSize) {
         fontSize--;
         text.style.fontSize = `${fontSize}px`;
-        text.style.bottom = "-10px";
+        text.style.bottom = "3px";
     }
 };
 
