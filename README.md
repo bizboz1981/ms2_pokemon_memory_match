@@ -65,10 +65,12 @@ References/Resources
 -   https://puzzles.bestforpuzzles.com/games/best-of-puzzles-codeword - scoring calculation
 -   https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/try...catch - try...catch
 -   https://stackoverflow.com/questions/56974852/how-to-catch-the-status-code-when-fetch-fails-using-async-await - catch http response codes
-- https://stackoverflow.com/questions/4919076/outline-effect-to-text - text outline
-- https://www.w3schools.com/jsref/prop_style_display.asp - set display to none instead of innerHTML = "";
-- https://stackoverflow.com/questions/11144274/javascript-changing-innerhtml-vs-display - innerHTML vs display
-- https://getbootstrap.com/docs/5.3/components/navbar/ - bootstrap navbar
-- https://getcssscan.com/css-buttons-examples - pre-styled button
+-   https://stackoverflow.com/questions/4919076/outline-effect-to-text - text outline
+-   https://www.w3schools.com/jsref/prop_style_display.asp - set display to none instead of innerHTML = "";
+-   https://stackoverflow.com/questions/11144274/javascript-changing-innerhtml-vs-display - innerHTML vs display
+-   https://getbootstrap.com/docs/5.3/components/navbar/ - bootstrap navbar
+-   https://getcssscan.com/css-buttons-examples - pre-styled button
+-   https://developer.mozilla.org/en-US/docs/Web/API/Element/innerHTML - how the innerHTML property works re appending elements
+-   https://www.w3schools.com/howto/howto_css_flip_card.asp - transparent card background
 
 w3schools animation doesn't seem to work
