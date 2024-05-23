@@ -65,15 +65,20 @@
         <div id="background">
             <h1 id="header">Pokémon Memory Match</h1>
             <div id="stats-container">
-                <p class="stats">Time: <span id="timer"></span></p>
-                <p class="stats">Turns: <span id="turns"></span></p>
-                <p class="stats">Score: <span id="score">0</span></p>
+                <p class="stats">
+                    <i class="fa-solid fa-hourglass-half"></i>
+                    <span id="timer">00:00</span>
+                </p>
+                <p class="stats">
+                    <i class="fa-solid fa-repeat"></i> <span id="turns">0</span>
+                </p>
+                <p class="stats">
+                    <i class="fa-regular fa-star"></i> <span id="score">0</span>
+                </p>
             </div>
             <div id="container">
                 <div id="game"></div>
-                <div>
-                    <ol id="high-scores"></ol>
-                </div>
+                <div id="high-scores"></div>
             </div>
         </div>
         <script
@@ -81,6 +86,10 @@
             integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
             crossorigin="anonymous"
         ></script>
-        <script src="./assets/js/game.js"></script>
+        <script
+            src="https://kit.fontawesome.com/69f3a11e1c.js"
+            crossorigin="anonymous"
+        ></script>
+        <script type="module" src="./assets/js/game.js"></script>
     </body>
 </html>
