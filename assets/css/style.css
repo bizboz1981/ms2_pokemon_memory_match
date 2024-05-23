@@ -84,6 +84,7 @@
     font-size: 2em;
 }
 
+/* New Game Button ------------------------------------------------------------------- New Game Button */
 .button-75 {
     align-items: center;
     background-image: linear-gradient(135deg, #f34079 40%, #fc894d);
@@ -140,6 +141,8 @@
     }
 }
 
+/* game board ------------------------------------------------------------- game board */
+
 #container {
     position: relative;
     display: flex;
@@ -155,6 +158,9 @@
 #high-scores {
     font-family: "Maven Pro", monospace;
     font-size: 2em;
+    justify-content: center;
+    align-items: center;
+    position: relative;
 }
 
 .card[data-pokemon-type="bug"] .card-front {
@@ -261,6 +267,11 @@
     box-sizing: border-box;
     transition: transform 0.6s;
     transform-style: preserve-3d;
+}
+
+.card {
+    background-color: transparent;
+    border: 0px;
 }
 
 .card img {
