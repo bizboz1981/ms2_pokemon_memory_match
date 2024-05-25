@@ -191,7 +191,7 @@ function flipCard() {
 }
 
 const incrementTurns = () => {
-    numTurns = document.getElementById("turns");
+    let numTurns = document.getElementById("turns");
     numTurns.innerText = turns;
 };
 
@@ -221,7 +221,11 @@ const checkCards = () => {
         }, 1000);
         flippedCards = 0;
     }
+    console.log(
+        `Matched Pairs: ${matchedPairs}, Number of Pairs: ${numberOfPairs}`
+    );
     if (matchedPairs === numberOfPairs) {
+        console.log("End condition met");
         clearInterval(intervalId);
         endGame();
     }
@@ -285,8 +289,8 @@ const resizeText = (text) => {
 
 // calculate score
 const calculateScore = () => {
-    percCorrect = Math.floor(numberOfPairs / turns) * 100;
-    bonusTimePts = (300 - totalSec) * 10;
+    let percCorrect = Math.floor(numberOfPairs / turns) * 100;
+    let bonusTimePts = (300 - totalSec) * 10;
     score = percCorrect + bonusTimePts;
     scoreElement.innerText = score.toString();
 };
@@ -307,11 +311,12 @@ const showHighScore = () => {
     let highScoreDiv = document.getElementById("high-scores");
     highScoreDiv.innerHTML = "";
     let html = "<h2>High Scores</h2><ol>";
-    for (i = 0; i < highScores.length; i++) {
+    for (let i = 0; i < highScores.length; i++) {
         html += `<li>${highScores[i]}</li>`;
     }
     html += "</ol>";
     highScoreDiv.innerHTML = html;
+    highScoreDiv.style.display = "block";
 };
 
 // Call this function so that 'new game' buttom resets the game without having to refresh page
