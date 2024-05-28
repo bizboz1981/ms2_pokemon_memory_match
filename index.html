@@ -44,7 +44,7 @@
             </div>
 
             <!-- Choose the number of pairs -->
-            <div id="select-num-pairs">
+            <div id="game-options" class="hidden">
                 <label for="dropdown">Select number of pairs: </label>
                 <select id="dropdown">
                     <option value="4">4</option>
@@ -56,13 +56,30 @@
                 <button id="btn-play" class="btn" role="button">Play</button>
             </div>
 
-            <!-- How to Play Container -->
+            <!-- Game Board -->
 
             <div id="container">
-                <div id="game"></div>
-                <div id="high-scores"></div>
+                <div id="game" class="hidden"></div>
+                <div id="high-scores" class="hidden"></div>
             </div>
-        </div>
+
+            <!-- How to Play Container -->
+            <div id="how-to-play" class="hidden">
+                <h2>How to Play</h2>
+                <p>
+                    Pokémon Memory Match is a game where you have to match all
+                    the Pokémon cards in the least amount of time and turns
+                    possible. The game ends when all the cards are matched.
+                </p>
+                <p>
+                    To play, click on a card to reveal the Pokémon. Then, click
+                    on another card to reveal the Pokémon. If the Pokémon match,
+                    they will stay revealed. If they don't match, they will be
+                    hidden again. Keep playing until all the Pokémon are
+                    revealed.
+                </p>
+                <button id="btn-back" class="btn" role="button">Back</button>
+            </div>
         <script
             src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"

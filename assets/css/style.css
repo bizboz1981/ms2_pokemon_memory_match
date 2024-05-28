@@ -39,6 +39,10 @@
     margin-top: 10px;
 }
 
+.hidden {
+    display: none !important;
+}
+
 #header {
     position: relative;
     font-size: 4em;
@@ -117,7 +121,7 @@
         line-height: 50px;
     }
 }
-#select-num-pairs {
+#game-options {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -332,6 +336,18 @@
     position: absolute;
     top: 30vh;
     left: 40%;
+}
+
+#how-to-play {
+    width: 50%;
+    left: 30%;
+    display: flex;
+    flex-direction: column;
+    font-family: "Maven Pro", monospace;
+    font-size: 1em;
+    justify-content: center;
+    align-items: center;
+    position: relative;
 }
 
 @media screen and (max-width: 576px) and (orientation: portrait) {

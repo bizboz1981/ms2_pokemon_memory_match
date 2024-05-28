@@ -1,7 +1,14 @@
 import { backupPokemon } from "./backupPokemon.js";
 const pokeBaseURL = "https://pokeapi.co/api/v2/pokemon/";
 const game = document.getElementById("game");
+const btnPlay = document.getElementById("btn-play");
 const btnNewGame = document.getElementById("btn-new-game");
+const gameOptions = document.getElementById("game-options");
+const btnHighScores = document.getElementById("btn-high-scores");
+const btnHowToPlay = document.getElementById("btn-how-to-play");
+const btnBack = document.getElementById("btn-back");
+const mainMenu = document.getElementById("main-menu");
+const howToPlay = document.getElementById("how-to-play");
 const scoreElement = document.getElementById("score");
 const backImgLink =
     "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/00749e58-41ca-4e6e-add6-55da22501c91/dexc4ag-47c47f39-89a4-477e-919c-f13d72286a64.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzAwNzQ5ZTU4LTQxY2EtNGU2ZS1hZGQ2LTU1ZGEyMjUwMWM5MVwvZGV4YzRhZy00N2M0N2YzOS04OWE0LTQ3N2UtOTE5Yy1mMTNkNzIyODZhNjQucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.OHUH-qup0p6ki77yTrbOcet5UrnBXLDSZ67SoahcC8Q";
@@ -12,6 +19,14 @@ dropdown.addEventListener("change", function () {
     numberOfPairs = parseInt(this.value);
 });
 
+// check buttons
+console.log(btnNewGame);
+console.log(gameOptions);
+console.log(btnHighScores);
+console.log(btnHowToPlay);
+console.log(mainMenu);
+console.log(scoreElement);
+
 // declare global variables
 let flippedCards = 0;
 let matchedPairs = 0;
@@ -20,6 +35,30 @@ let turns = 0;
 let clicks = 0;
 let intervalId;
 let totalSec = 0;
+
+// functions to navigate between game and menu
+const showGameOptions = () => {
+    mainMenu.style.display = "none";
+    gameOptions.classList.remove("hidden");
+};
+
+const showHowToPlay = () => {
+    mainMenu.style.display = "none";
+    howToPlay.classList.remove("hidden");
+    howToPlay.style.display = "flex";
+};
+
+const showMainMenu = () => {
+    mainMenu.style.display = "flex";
+    gameOptions.classList.add("hidden");
+    howToPlay.classList.add("hidden");
+    highScoreDiv.classList.add("hidden");
+};
+
+// add event listeners to buttons
+btnNewGame.addEventListener("click", showGameOptions);
+btnHowToPlay.addEventListener("click", showHowToPlay);
+btnBack.addEventListener("click", showMainMenu);
 
 /** there are over 1000 pokemon in the database */
 const randNum = () => {
@@ -245,13 +284,14 @@ const endGame = () => {
 // functionality for 'new game' buttom
 const newGame = () => {
     game.innerHTML = "";
-    game.classList.remove("celebrate");
+    game.classList.remove("celebrate", "hidden");
+    gameOptions.classList.add("hidden");
     displayCards(numberOfPairs);
     resetGameStats();
     setGridDimensions();
 };
 
-btnNewGame.addEventListener("click", newGame);
+btnPlay.addEventListener("click", newGame);
 
 // create timer and increment in seconds
 function timer() {
@@ -306,18 +346,31 @@ const saveHighScores = (score) => {
 
 // display list of highscores retrieved from local storage
 const showHighScore = () => {
-    game.style.display = "none";
+    game.classList.add("hidden");
     let highScores = JSON.parse(localStorage.getItem("highScores")) || [];
     let highScoreDiv = document.getElementById("high-scores");
+    highScoreDiv.classList.remove("hidden");
     highScoreDiv.innerHTML = "";
     let html = "<h2>High Scores</h2><ol>";
     for (let i = 0; i < highScores.length; i++) {
         html += `<li>${highScores[i]}</li>`;
     }
-    html += "</ol>";
+    html += `</ol><button id="btn-back-1" class="btn">Back</button>`;
     highScoreDiv.innerHTML = html;
     highScoreDiv.style.display = "block";
+
+    let btnBack = document.getElementById("btn-back-1");
+    btnBack.addEventListener("click", function () {
+        highScoreDiv.classList.add("hidden");
+        mainMenu.style.display = "flex";
+    });
 };
+
+// attach event listener to high scores button and call showHighScore function after function declared
+btnHighScores.addEventListener("click", function () {
+    mainMenu.style.display = "none";
+    showHighScore();
+});
 
 // Call this function so that 'new game' buttom resets the game without having to refresh page
 const resetGameStats = () => {
