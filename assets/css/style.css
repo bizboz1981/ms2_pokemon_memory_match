@@ -328,9 +328,10 @@
     transform: rotateY(180deg);
 }
 
-.celebrate {
+#you-win h1 {
+    display: flex;
     font-family: "Maven Pro", monospace;
-    font-size: 6em;
+    font-size: 6em !important;
     font-weight: bold;
     color: gold;
     position: absolute;
