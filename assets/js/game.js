@@ -1,5 +1,12 @@
+// Backup module
 import { backupPokemon } from "./backupPokemon.js";
+
+// Constants
 const pokeBaseURL = "https://pokeapi.co/api/v2/pokemon/";
+const backImgLink =
+"https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/00749e58-41ca-4e6e-add6-55da22501c91/dexc4ag-47c47f39-89a4-477e-919c-f13d72286a64.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzAwNzQ5ZTU4LTQxY2EtNGU2ZS1hZGQ2LTU1ZGEyMjUwMWM5MVwvZGV4YzRhZy00N2M0N2YzOS04OWE0LTQ3N2UtOTE5Yy1mMTNkNzIyODZhNjQucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.OHUH-qup0p6ki77yTrbOcet5UrnBXLDSZ67SoahcC8Q";
+
+// DOM elements
 const game = document.getElementById("game");
 const btnPlay = document.getElementById("btn-play");
 const btnNewGame = document.getElementById("btn-new-game");
@@ -10,24 +17,11 @@ const btnBack = document.getElementById("btn-back");
 const mainMenu = document.getElementById("main-menu");
 const howToPlay = document.getElementById("how-to-play");
 const scoreElement = document.getElementById("score");
-const backImgLink =
-    "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/00749e58-41ca-4e6e-add6-55da22501c91/dexc4ag-47c47f39-89a4-477e-919c-f13d72286a64.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzAwNzQ5ZTU4LTQxY2EtNGU2ZS1hZGQ2LTU1ZGEyMjUwMWM5MVwvZGV4YzRhZy00N2M0N2YzOS04OWE0LTQ3N2UtOTE5Yy1mMTNkNzIyODZhNjQucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.OHUH-qup0p6ki77yTrbOcet5UrnBXLDSZ67SoahcC8Q";
 const dropdown = document.getElementById("dropdown");
+const youWin = document.getElementById("you-win");
+
+// Global Variables
 let numberOfPairs = parseInt(dropdown.value);
-// listen for change in number of pairs and update variable accordingly
-dropdown.addEventListener("change", function () {
-    numberOfPairs = parseInt(this.value);
-});
-
-// check buttons
-console.log(btnNewGame);
-console.log(gameOptions);
-console.log(btnHighScores);
-console.log(btnHowToPlay);
-console.log(mainMenu);
-console.log(scoreElement);
-
-// declare global variables
 let flippedCards = 0;
 let matchedPairs = 0;
 let score = 0;
@@ -36,7 +30,7 @@ let clicks = 0;
 let intervalId;
 let totalSec = 0;
 
-// functions to navigate between game and menu
+// Navigation Functions
 const showGameOptions = () => {
     mainMenu.style.display = "none";
     gameOptions.classList.remove("hidden");
@@ -55,16 +49,25 @@ const showMainMenu = () => {
     highScoreDiv.classList.add("hidden");
 };
 
-// add event listeners to buttons
-btnNewGame.addEventListener("click", showGameOptions);
-btnHowToPlay.addEventListener("click", showHowToPlay);
-btnBack.addEventListener("click", showMainMenu);
+// Helper Functions
 
-/** there are over 1000 pokemon in the database */
+// Generate random number between 1 and 1025 (the number of Pokemon in the database)
 const randNum = () => {
-    return Math.ceil(Math.random() * 1000);
+    return Math.ceil(Math.random() * 1025);
 };
 
+// Shuffle array according to Durstenfeld algorithm
+const shuffleArray = (arr) => {
+    for (let i = arr.length - 1; i > 0; i--) {
+        let j = Math.floor(Math.random() * (i + 1));
+        let temp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = temp;
+    }
+    return arr;
+};
+
+ // Set the grid dimensions based on the number of pairs
 const setGridDimensions = () => {
     let numberOfColumns;
     let numberOfRows;
@@ -95,38 +98,54 @@ const setGridDimensions = () => {
             break;
     }
 
-    // set number of columns
+    // set number of columns & rows
     game.style.gridTemplateColumns = `repeat(${numberOfColumns}, 1fr)`;
     game.style.gridTemplateRows = `repeat(${numberOfRows}, 1fr)`;
 };
 
-/** This function performs an asynchronous loading of required number of pokemon
- * We use async so that all pokemon are returned at the same time without pausing the rest of the code
- * Must return an array of pokemon data in json format
+// Increment turns counter on UI
+const incrementTurns = () => {
+    let numTurns = document.getElementById("turns");
+    numTurns.innerText = turns;
+};
+
+// Core Game Functions and Logic
+
+/** 
+ * Asynchronously load the required number of Pokemon
+ * Returns an array parsed to json format
+ * If api fails (returns non-200 range response) backup Pokemon get loaded instead
  * Inspired by https://github.com/jamesqquick/javascript-memory-match/blob/master/app.js
  */
 const loadPokemon = async (numberOfPairs) => {
     try {
-        const randIds = new Set(); // Sets cannot contain duplicate values, so will be guarantee unique pokemon
-        while (randIds.size < numberOfPairs) {
-            // Not 'numPairs + 1' - we want this loop to exit when length = numPairs, not run again as then we'd have 1 too many
+        // Use Set to ensure no duplicates
+        const randIds = new Set(); 
+        while (randIds.size < numberOfPairs) { // Exit loop when length == numberOfPairs
             randIds.add(randNum());
         }
-        const pokePromises = [...randIds].map((id) => fetch(pokeBaseURL + id)); // Spread the randIds set into an array which supports .map. For each id in the array, fetch a promise from the base URL with random id appended. Returns an array of promises
-        const results = await Promise.all(pokePromises); // returns a single promise that resolves when all pokePromises have resolved; returns an array
+        // Spread the randIds set into an array which supports .map
+        // For each id in the array, fetch a promise from the base URL with random id appended
+        // Returns an array of promises
+        const pokePromises = [...randIds].map((id) => fetch(pokeBaseURL + id)); 
+        // returns a single promise that resolves when all pokePromises have resolved
+        const results = await Promise.all(pokePromises); 
+        // checks each response and throws an error if non-200 range
         for (let result of results) {
             if (!result.ok) {
                 throw new Error("Pokemon failed with error");
             }
         }
+        // Returns an array of Pokemon, used by createCard() to create the cards
         return await Promise.all(results.map((res) => res.json()));
     } catch {
         return backupPokemon.slice(0, numberOfPairs);
     }
 };
 
-/** Create a parent card div with 'front' and 'back' children
- *  This won't display cards, it just gives the displayCards function the data/objects it needs
+/** 
+ * Create a parent card div with 'front' and 'back' children
+ * This won't display cards, it just gives the displayCards function the data/objects it needs
  */
 const createCard = (pokemon) => {
     // create parent card div as well as front and back children
@@ -169,20 +188,11 @@ const createCard = (pokemon) => {
     return card;
 };
 
-/** This function will display the cards face down on the html
+/** 
+ * This function will display the cards face down on the html
  * ref: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function#
  * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach
  */
-
-const shuffleArray = (arr) => {
-    for (let i = arr.length - 1; i > 0; i--) {
-        let j = Math.floor(Math.random() * (i + 1));
-        let temp = arr[i];
-        arr[i] = arr[j];
-        arr[j] = temp;
-    }
-    return arr;
-};
 
 const displayCards = async (numberOfPairs) => {
     // create empty array to hold cards
@@ -204,45 +214,48 @@ const displayCards = async (numberOfPairs) => {
         let pokeName = card.querySelector("h6");
         resizeText(pokeName);
     });
-    // handle visibility and flipping animation with css
 };
 
+/**
+ * This function checks for cards that are already 'flipped' or 'paired' and ignores clicks
+ * If not already paired or flipped, it adds the 'flipped' css class, which triggers the flip animation
+ */
 function flipCard() {
+    // Check if already flipped or paired; if so, ignore clicks...
     if (
         this.classList.contains("flipped") ||
         this.classList.contains("paired")
     ) {
         return;
     }
-
+    // ... Otherwise, add class 'flipped to trigger animation and increment vars
     this.classList.add("flipped");
     clicks++;
     flippedCards++;
+    // When 2 cards are turned over, check if they match
     if (flippedCards == 2) {
         checkCards();
         turns++;
         incrementTurns();
     }
-
+    // If this is the first card clicked, start the game timer
     if (clicks === 1) {
         timer();
     }
 }
 
-const incrementTurns = () => {
-    let numTurns = document.getElementById("turns");
-    numTurns.innerText = turns;
-};
-
-/** Game logic */
-
+/** 
+ * 
+ */
 const checkCards = () => {
+    // Push flipped card ids to an empty array
     let cardIds = [];
     const flippedToCheck = document.querySelectorAll(".flipped");
     flippedToCheck.forEach(function (card) {
         cardIds.push(card.dataset.pokemon);
     });
 
+    // If cards have the same id, they match, so add 'paired' class to keep them flipped...
     if (cardIds[0] === cardIds[1]) {
         matchedPairs++;
         document.getElementById("score").innerHTML = score;
@@ -251,6 +264,7 @@ const checkCards = () => {
             card.classList.add("paired");
             card.classList.remove("flipped");
         });
+    // ... Else turn back over
     } else {
         cardIds = [];
         setTimeout(() => {
@@ -260,11 +274,9 @@ const checkCards = () => {
         }, 1000);
         flippedCards = 0;
     }
-    console.log(
-        `Matched Pairs: ${matchedPairs}, Number of Pairs: ${numberOfPairs}`
-    );
+
+    // If all pairs matched, end game
     if (matchedPairs === numberOfPairs) {
-        console.log("End condition met");
         clearInterval(intervalId);
         endGame();
     }
@@ -273,12 +285,14 @@ const checkCards = () => {
 // Handle the end of the game
 const endGame = () => {
     setTimeout(() => {
-        calculateScore();
-        saveHighScores(score);
-        showHighScore();
-        game.innerHTML = "You Win!!";
-        game.classList.add("celebrate");
+        setTimeout(() => {
+            calculateScore();
+            saveHighScores(score);
+            showHighScore();
+        },2000);
+        youWin.classList.remove("hidden");
     }, 2000);
+    youWin.classList.add("hidden");
 };
 
 // functionality for 'new game' buttom
@@ -290,8 +304,6 @@ const newGame = () => {
     resetGameStats();
     setGridDimensions();
 };
-
-btnPlay.addEventListener("click", newGame);
 
 // create timer and increment in seconds
 function timer() {
@@ -387,3 +399,12 @@ const resetGameStats = () => {
     highScoreDiv.innerHTML = "";
     intervalId = null;
 };
+
+// Add Event Listeners
+btnPlay.addEventListener("click", newGame);
+btnNewGame.addEventListener("click", showGameOptions);
+btnHowToPlay.addEventListener("click", showHowToPlay);
+btnBack.addEventListener("click", showMainMenu);
+dropdown.addEventListener("change", function () {
+    numberOfPairs = parseInt(this.value);
+});
