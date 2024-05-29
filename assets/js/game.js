@@ -134,7 +134,7 @@ const newGame = () => {
     game.classList.remove("hidden");
     gameOptions.classList.add("hidden");
     displayCards(numberOfPairs);
-    resetGameStats();
+    resetGlobalVariables();
     resetGameStatsUI();
     setGridDimensions();
 };
@@ -152,6 +152,26 @@ const endGame = () => {
         },2000);    
     }, 2000);
 };
+
+// Reset global variables to prepare for new game
+const resetGlobalVariables = () => {
+    clearInterval(intervalId);
+    clicks = 0;
+    turns = 0;
+    matchedPairs = 0;
+    totalSec = 0;
+    score = 0;
+    intervalId = null;
+};
+
+// Reset UI stats ready for new game
+const resetGameStatsUI = () => {
+    document.getElementById("turns").innerHTML = "0";
+    document.getElementById("timer").innerHTML = "00:00";
+    document.getElementById("score").innerHTML = "0";
+    let highScoreDiv = document.getElementById("high-scores");
+    highScoreDiv.innerHTML = "";
+}
 
 // Core Game Functions and Logic
 
@@ -344,65 +364,59 @@ function timer() {
     }, 1000);
 }
 
-
-
-// calculate score
+/**
+ * Score is calculated by taking the percentage of correct guesses plus bonus time points
+ * Score is written to the UI
+ */
 const calculateScore = () => {
     let percCorrect = Math.floor(numberOfPairs / turns) * 100;
-    let bonusTimePts = (300 - totalSec) * 10;
+    let bonusTimePts = (numberOfPairs * 10 - totalSec) * 10;
     score = percCorrect + bonusTimePts;
     scoreElement.innerText = score.toString();
 };
 
+// If highscores exist in local storage, get them, otherwise create empty object
+const getHighScoresLocal = () => {
+    return JSON.parse(localStorage.getItem("highScores")) || [];
+}
+
 // save highscores to local storage
 const saveHighScores = (score) => {
-    let highScores = JSON.parse(localStorage.getItem("highScores")) || []; // if highscores doesn't exist in local storage, create empty object
-    highScores.push(score);
+    let highScores = getHighScoresLocal(); // retrieve high score array
+    highScores.push(score); // push score to the array
     highScores.sort((a, b) => b - a); // sort numerically
-    highScores = highScores.slice(0, 5);
+    highScores = highScores.slice(0, 5); // get top 5 scores
     localStorage.setItem("highScores", JSON.stringify(highScores)); // push array to local storage
 };
 
-// display list of highscores retrieved from local storage
+/**
+ * Display list of highscores retrieved from local storage
+ * Append scores iteratively to html string, along with h2 and button (this prevents open tags being automatically closed)
+ * finally set innerHTML equal to html string and add functionality to button
+ */
 const showHighScore = () => {
     game.classList.add("hidden");
-    let highScores = JSON.parse(localStorage.getItem("highScores")) || [];
+    let highScores = getHighScoresLocal();
+    // show the high score div and clear any existing innerHTML
     let highScoreDiv = document.getElementById("high-scores");
     highScoreDiv.classList.remove("hidden");
     highScoreDiv.innerHTML = "";
+    // iteratively create html content as 'html' var
     let html = "<h2>High Scores</h2><ol>";
     for (let i = 0; i < highScores.length; i++) {
         html += `<li>${highScores[i]}</li>`;
     }
     html += `</ol><button id="btn-back-1" class="btn">Back</button>`;
+    // Set inner html to completed 'html' string
     highScoreDiv.innerHTML = html;
     highScoreDiv.style.display = "block";
-
+    // add functionality to 'back' button
     let btnBack = document.getElementById("btn-back-1");
     btnBack.addEventListener("click", function () {
         highScoreDiv.classList.add("hidden");
         mainMenu.style.display = "flex";
     });
 };
-
-// Call this function so that 'new game' buttom resets the game without having to refresh page
-const resetGameStats = () => {
-    clearInterval(intervalId);
-    clicks = 0;
-    turns = 0;
-    matchedPairs = 0;
-    totalSec = 0;
-    score = 0;
-    intervalId = null;
-};
-
-const resetGameStatsUI = () => {
-    document.getElementById("turns").innerHTML = "0";
-    document.getElementById("timer").innerHTML = "00:00";
-    document.getElementById("score").innerHTML = "0";
-    let highScoreDiv = document.getElementById("high-scores");
-    highScoreDiv.innerHTML = "";
-}
 
 // Add Event Listeners
 btnPlay.addEventListener("click", newGame);
