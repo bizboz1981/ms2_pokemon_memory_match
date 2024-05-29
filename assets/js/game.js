@@ -108,6 +108,50 @@ const incrementTurns = () => {
     let numTurns = document.getElementById("turns");
     numTurns.innerText = turns;
 };
+/**
+ * Some Pokemon have very long names that overflow the edges of the card
+ * This function decrements the text size of long names until the text fits on the card
+ */
+const resizeText = (text) => {
+    let card = document.getElementsByClassName("card")[0];
+    if (!card) {
+        return;
+    }
+    let cardSize = document.getElementsByClassName("card")[0].offsetWidth;
+    let fontSize = parseInt(window.getComputedStyle(text).fontSize);
+    while (text.offsetWidth > cardSize) {
+        fontSize--;
+        text.style.fontSize = `${fontSize}px`;
+        text.style.bottom = "3px";
+    }
+};
+
+// Game start and end
+
+// Start a new game by hiding any visible divs, resetting stats and displaying cards
+const newGame = () => {
+    game.innerHTML = "";
+    game.classList.remove("hidden");
+    gameOptions.classList.add("hidden");
+    displayCards(numberOfPairs);
+    resetGameStats();
+    resetGameStatsUI();
+    setGridDimensions();
+};
+
+// When all pairs are matched, show cards for 2 seconds, show 'You Win' for 2 seconds, then show high scores
+const endGame = () => {
+    setTimeout(() => {
+        game.classList.add("hidden");
+        youWin.classList.remove("hidden");
+        setTimeout(() => {
+            youWin.classList.add("hidden");
+            calculateScore();
+            saveHighScores(score);
+            showHighScore();
+        },2000);    
+    }, 2000);
+};
 
 // Core Game Functions and Logic
 
@@ -245,7 +289,7 @@ function flipCard() {
 }
 
 /** 
- * 
+ * Core logic for checking cards and invoking endGame when all pairs are matched
  */
 const checkCards = () => {
     // Push flipped card ids to an empty array
@@ -282,29 +326,6 @@ const checkCards = () => {
     }
 };
 
-// Handle the end of the game
-const endGame = () => {
-    setTimeout(() => {
-        setTimeout(() => {
-            calculateScore();
-            saveHighScores(score);
-            showHighScore();
-        },2000);
-        youWin.classList.remove("hidden");
-    }, 2000);
-    youWin.classList.add("hidden");
-};
-
-// functionality for 'new game' buttom
-const newGame = () => {
-    game.innerHTML = "";
-    game.classList.remove("celebrate", "hidden");
-    gameOptions.classList.add("hidden");
-    displayCards(numberOfPairs);
-    resetGameStats();
-    setGridDimensions();
-};
-
 // create timer and increment in seconds
 function timer() {
     let min = 0;
@@ -323,21 +344,7 @@ function timer() {
     }, 1000);
 }
 
-// resize nanes of pokemon that are wider than card
-const resizeText = (text) => {
-    let card = document.getElementsByClassName("card")[0];
-    if (!card) {
-        console.log("no card class found");
-        return;
-    }
-    let cardSize = document.getElementsByClassName("card")[0].offsetWidth;
-    let fontSize = parseInt(window.getComputedStyle(text).fontSize);
-    while (text.offsetWidth > cardSize) {
-        fontSize--;
-        text.style.fontSize = `${fontSize}px`;
-        text.style.bottom = "3px";
-    }
-};
+
 
 // calculate score
 const calculateScore = () => {
@@ -378,27 +385,24 @@ const showHighScore = () => {
     });
 };
 
-// attach event listener to high scores button and call showHighScore function after function declared
-btnHighScores.addEventListener("click", function () {
-    mainMenu.style.display = "none";
-    showHighScore();
-});
-
 // Call this function so that 'new game' buttom resets the game without having to refresh page
 const resetGameStats = () => {
     clearInterval(intervalId);
     clicks = 0;
     turns = 0;
     matchedPairs = 0;
-    document.getElementById("turns").innerHTML = "0";
     totalSec = 0;
-    document.getElementById("timer").innerHTML = "00:00";
     score = 0;
+    intervalId = null;
+};
+
+const resetGameStatsUI = () => {
+    document.getElementById("turns").innerHTML = "0";
+    document.getElementById("timer").innerHTML = "00:00";
     document.getElementById("score").innerHTML = "0";
     let highScoreDiv = document.getElementById("high-scores");
     highScoreDiv.innerHTML = "";
-    intervalId = null;
-};
+}
 
 // Add Event Listeners
 btnPlay.addEventListener("click", newGame);
@@ -407,4 +411,9 @@ btnHowToPlay.addEventListener("click", showHowToPlay);
 btnBack.addEventListener("click", showMainMenu);
 dropdown.addEventListener("change", function () {
     numberOfPairs = parseInt(this.value);
+});
+// attach event listener to high scores button and call showHighScore function after function declared
+btnHighScores.addEventListener("click", function () {
+    mainMenu.style.display = "none";
+    showHighScore();
 });
