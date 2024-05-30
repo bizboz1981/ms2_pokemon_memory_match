@@ -1,49 +1,82 @@
-# Pokemon Memory Match
+# Pokémon Memory Match Game
 
-## Workflow
+Link to live project: [Pokémon Memory Match](https://bizboz1981.github.io/ms2_pokemon_memory_match/)
 
-✅ Tested and working
-🔸 Partially Implemented
-🛑 Not yet implemented
-💀 Feature abandoned
+## Table of Contents
 
-1. Make connection to Poke API ✅
-2. Randomly select specified number of pokemon (n=8 for a 4x4 grid; n=12 for 4x6 etc) ✅
+[User Experience (UX)](#user-experience-ux)  
+[Features & Structure](#existing-features)  
+[Design](#design)  
+[Technologies Used](#technologies-used)  
+[Testing](#testing)  
+[Deployment](#deployment)  
+[Credits](#credits)  
+[References & Resources Used](#references--resources-used)
 
--   this function should return a promise with selected number of pokemon and their attributes in json format ✅
--   print to innerHTML of 'game' div to check ✅
+<!--------------------------------------------------------User Experience -->
+# User Experience (UX)
+## User Stories
+### First Time Visitor Goals
 
-3. Extract relevant data (type, name and sprite) from random pokemon fetched in step ✅
-4. Define Pokemon Class - this will need to include a class method to generate the html for that card element 💀
-5. Create class instances (objects) of each pokemon selected by the random api calls and map them to the cards 💀
-6. create front and back of cards ✅
-7. Place the cards face down on the table ✅
-8. Define game logic and features (match/no match, increment score, leaderboard etc.)\
+### Returning Visitor Goals
 
--   Flip cards✅
-    -   add 'flipped' class to card on click ✅
-    -   hide back and show front of card✅
-    -   increment counter by 1✅
-    -   when counter == 2, invoke compareCards function, reset counter to 0✅
--   check cards:
-    -   compare custom data types (name of pokemon) on cards with 'flipped' class✅
-    -   if the same, do not turn back over✅
-    -   increment score by 1✅
-    -   check if all cards are flipped✅
+### Frequent Visitor Goals
 
-9.  Add turn counter ✅
-10. Add leaderboard 🔸
-11. Add timer ✅
-12. add option for player to choose number of pairs (between 4 & 12)? ✅
-13. different levels? 💀
-14. Define end game (win/lose) ✅
-15. Reset game ✅
-16. New branch to attempt implementation of OOP / Pokemon class 💀
-17. Style the game & make responsive 🔸
-18. 'You Won' animation
-19. Pokemon name and type ✅
+<!--------------------------------------------------------Features -->
+# Features & Structure
+## Existing Features
 
-References/Resources
+## Future Features
+
+<!--------------------------------------------------------Design -->
+# Design
+## Wireframes
+
+## Colour Scheme
+
+<!--------------------------------------------------------Technologies -->
+# Technologies Used
+## Languages
+
+## Applications
+
+## Frameworks, Libraries & CDNs
+
+## Other Tech & VS Code Extensions
+
+## Learning Resources
+
+<!--------------------------------------------------------Testing -->
+# Testing
+## User Testing
+### First Time Visitor Goals & Experience
+
+### Returning Visitor Goals
+
+### Frequent Visitor Goals
+
+## Manual Testing
+### Features Testing
+
+### Device & Browser Responsiveness Testing
+
+### Online Validation Services
+
+### Lighthouse
+
+### Bugs
+
+<!--------------------------------------------------------Testing -->
+# Deployment
+### Forking this project for local development
+
+### Deploying the project
+
+# Credits
+
+
+
+# References & Resources Used
 
 -   https://photics.com/flipping-a-card-with-html-css-javascript/
 -   https://www.thatsoftwaredude.com/content/6196/coding-a-card-deck-in-javascript
@@ -72,5 +105,3 @@ References/Resources
 -   https://getcssscan.com/css-buttons-examples - pre-styled button
 -   https://developer.mozilla.org/en-US/docs/Web/API/Element/innerHTML - how the innerHTML property works re appending elements
 -   https://www.w3schools.com/howto/howto_css_flip_card.asp - transparent card background
-
-w3schools animation doesn't seem to work
