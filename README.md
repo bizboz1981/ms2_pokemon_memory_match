@@ -17,17 +17,33 @@ Link to live project: [Pokémon Memory Match](https://bizboz1981.github.io/ms2_p
 # User Experience (UX)
 ## User Stories
 ### First Time Visitor Goals
-
+	1.	As a First Time Visitor, I want to easily understand the main purpose of the game and how to play it.
+	2.	As a First Time Visitor, I want to be able to start a new game quickly and without confusion.
+	3.	As a First Time Visitor, I want the game to be visually appealing and engaging.
 ### Returning Visitor Goals
-
+	1.	As a Returning Visitor, I want to see any new features or improvements in the game.
+	2.	As a Returning Visitor, I want to challenge myself by beating my previous scores or times.
+	3.	As a Returning Visitor, I want to find a way to give feedback about the game.
 ### Frequent Visitor Goals
+	1.	As a Frequent Visitor, I want to see my highest scores and fastest times displayed.
+	2.	As a Frequent Visitor, I want to experience smooth game-play without any bugs or issues.
+	3.	As a Frequent Visitor, I want to be informed about any upcoming updates or new features.
 
 <!--------------------------------------------------------Features -->
 # Features & Structure
 ## Existing Features
+##### Menu & Navigation
+##### How to Play
+##### Difficulty Selector
+##### Game Board
+##### Score
+##### Timer
+##### Turn Counter
+##### High Scores
 
 ## Future Features
-
+##### Leaderboard (name)
+##### Game Features (card reshuffle, Star Wars etc)
 <!--------------------------------------------------------Design -->
 # Design
 ## Wireframes
