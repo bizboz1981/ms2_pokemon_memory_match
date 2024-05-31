@@ -41,4 +41,7 @@
 18. 'You Won' animation
 19. Pokemon name and type ✅
 20. improve responsiveness (add breakpoints)
-21. readme
+21. How to play gif
+22. reset high scores button
+23. readme
+24. prevent 3 cards being turned at once
