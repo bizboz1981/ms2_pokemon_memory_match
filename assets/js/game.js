@@ -3,7 +3,7 @@ import { backupPokemon } from "./backupPokemon.js";
 
 // Constants
 const pokeBaseURL = "https://pokeapi.co/api/v2/pokemon/";
-const backImgLink = "assets/img/pokeball.png"
+const backImgLink = "assets/img/pokeball.png";
 
 // DOM elements
 const game = document.getElementById("game");
@@ -170,7 +170,7 @@ const resetGameStatsUI = () => {
     document.getElementById("score").innerHTML = "0";
     let highScoreDiv = document.getElementById("high-scores");
     highScoreDiv.innerHTML = "";
-}
+};
 
 // Core Game Functions and Logic
 
@@ -305,7 +305,7 @@ function flipCard() {
     if (clicks === 1) {
         timer();
     }
-}
+};
 
 /** 
  * Core logic for checking cards and invoking endGame when all pairs are matched
@@ -361,7 +361,7 @@ function timer() {
         timeDiv.innerHTML = `${min}:${sec}`;
         totalSec++;
     }, 1000);
-}
+};
 
 /**
  * Score is calculated by taking the percentage of correct guesses plus bonus time points
@@ -377,7 +377,7 @@ const calculateScore = () => {
 // If highscores exist in local storage, get them, otherwise create empty object
 const getHighScoresLocal = () => {
     return JSON.parse(localStorage.getItem("highScores")) || [];
-}
+};
 
 // save highscores to local storage
 const saveHighScores = (score) => {
