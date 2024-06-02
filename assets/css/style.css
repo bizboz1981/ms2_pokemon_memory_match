@@ -395,7 +395,7 @@
     }
 
     #header {
-        font-size: 4em;
+        font-size: 3em;
     }
 
     .stats {
@@ -445,7 +445,7 @@
     }
 
     #header {
-        font-size: 3em;
+        font-size: 2em;
     }
 
     .stats {
@@ -495,7 +495,7 @@
     }
 
     #header {
-        font-size: 2em;
+        font-size: 1em;
     }
 
     .stats {
@@ -513,5 +513,12 @@
 
     .celebrate {
         font-size: 2em;
+    }
+}
+
+@media (orientation: landscape) and (hover: none) and (pointer:coarse) {
+    #background::before {
+        content: "Please turn your device to portrait mode to play the game.";
+        display: flex;
     }
 }
