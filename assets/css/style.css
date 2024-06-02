@@ -520,5 +520,12 @@
     #background::before {
         content: "Please turn your device to portrait mode to play the game.";
         display: flex;
+        justify-content: center;
+        align-items: center;
+        top: 50%;
+        left: auto;
+    }
+    #main-menu, #header, #stats-container, #game-options, #high-scores, #how-to-play, #game, #you-win{
+        display: none;
     }
 }
