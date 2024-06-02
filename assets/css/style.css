@@ -35,7 +35,7 @@
     align-items: center;
     position: absolute;
     top: 30%;
-    left: 45%;
+    left: calc(50% - 75px);
     margin-top: 10px;
 }
 
@@ -135,7 +135,7 @@
     margin-top: 10px;
     position: absolute;
     top: 30%;
-    left: 45%;
+    left: calc(50% - 75px);
 }
 
 #dropdown {
@@ -158,7 +158,7 @@
 #high-scores {
     width: 50%;
     top: 25%;
-    left: 45%;
+    left: calc(50% - 75px);
     display: flex;
     flex-direction: column;
     font-family: "Maven Pro", monospace;
