@@ -47,13 +47,19 @@ After a player chooses 'New Game' they are prompted to choose the difficulty lev
 ##### Game Board
 When the player clicks 'Play', the menu items are hidden and the game board displayed. The correct number of cards are displayed according to the number of pairs (difficulty) chosen. In order to ensure the cards are arranged in the ideal manner for the screen size and number of pairs, the grid dimensions are hard-coded according to conditional logic in the javascript. 
 ##### Score
+This is populated at the end of the game, because score is not calculated cumulatively; rather it is a function of time taken and number of turns, so cannot be calculated in real time.
 ##### Timer
+This starts as soon as the first card is clicked. It counts upwards in minutes and seconds and allows the player to track their progress. Time is used in calculating the final score.
 ##### Turn Counter
+Increments by 1 for every 2 cards clicked (i.e. every turn) giving the user real-time feedback on their progress.
 ##### High Scores
+At the end of the game the list of high scores displays. By checking their own score for the current game, players can check if they have made the leaderboard.
 
 ## Future Features
-##### Leaderboard (name)
-##### Game Features (card reshuffle, Star Wars etc)
+- Highscores to take user input for name
+- If score makes highscore list, highlight it in the list
+- Create button to reset highscore list
+- 
 <!--------------------------------------------------------Design -->
 # Design
 ## Wireframes
@@ -63,11 +69,16 @@ When the player clicks 'Play', the menu items are hidden and the game board disp
 <!--------------------------------------------------------Technologies -->
 # Technologies Used
 ## Languages
-
+- HTML5
+- CSS3
+- JavaScript
 ## Applications
-
+- Git - for version control.
+- GitHub - for version control and hosting.
+- Visual Studio Code - for coding the project.
+- Balsamiq - for wireframing.
 ## Frameworks, Libraries & CDNs
-
+This project is intentionally built using vanilla javascript, css and html. However, I have used font awesome and google fonts.
 ## Other Tech & VS Code Extensions
 
 ## Learning Resources
@@ -83,8 +94,21 @@ When the player clicks 'Play', the menu items are hidden and the game board disp
 
 ## Manual Testing
 ### Features Testing
+| Feature                | Test Case                                     | Outcome                                                       |
+| ---------------------- | --------------------------------------------- | ------------------------------------------------------------- |
+| Start Game Button      | Click to start a new game                     | Game starts successfully                                      |
+| Card Flip              | Click on a card to flip it                    | Card flips and reveals Pokémon                                |
+| Matching Cards         | Match two cards                               | Cards remain flipped when matched                             |
+| Mismatched Cards       | Select two different cards                    | Cards flip back after a short delay                           |
+| Restart Button         | Click to restart the game                     | Game restarts and shuffles cards                              |
 
 ### Device & Browser Responsiveness Testing
+| Device/Browser        | Appearance | Responsiveness | Issues                        |
+| --------------------- | ---------- | -------------- | ----------------------------- |
+| iPad Air/Safari       | Good       | Good           | None                          |
+| iPhone 14 Pro/Safari  | Good       | Good           | None                          |
+| Macbook Air/Safari    | Good       | Good           | None                          |
+| Windows 10/Chrome     | Good       | Good           | None                          |
 
 ### Online Validation Services
 
