@@ -13,6 +13,7 @@ const gameOptions = document.getElementById("game-options");
 const btnHighScores = document.getElementById("btn-high-scores");
 const btnHowToPlay = document.getElementById("btn-how-to-play");
 const btnBack = document.getElementById("btn-back");
+const btnBack2 = document.getElementById("btn-back-2");
 const mainMenu = document.getElementById("main-menu");
 const howToPlay = document.getElementById("how-to-play");
 const scoreElement = document.getElementById("score");
@@ -439,6 +440,7 @@ btnPlay.addEventListener("click", newGame);
 btnNewGame.addEventListener("click", showGameOptions);
 btnHowToPlay.addEventListener("click", showHowToPlay);
 btnBack.addEventListener("click", showMainMenu);
+btnBack2.addEventListener("click", showMainMenu);
 dropdown.addEventListener("change", function () {
     numberOfPairs = parseInt(this.value);
 });
