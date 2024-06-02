@@ -131,3 +131,6 @@ When the player clicks 'Play', the menu items are hidden and the game board disp
 -   https://getcssscan.com/css-buttons-examples - pre-styled button
 -   https://developer.mozilla.org/en-US/docs/Web/API/Element/innerHTML - how the innerHTML property works re appending elements
 -   https://www.w3schools.com/howto/howto_css_flip_card.asp - transparent card background
+-   https://stackoverflow.com/questions/21664940/force-browser-to-trigger-reflow-while-changing-css, 
+https://stackoverflow.com/questions/27637184/what-is-dom-reflow - resize text/reflow
+-   

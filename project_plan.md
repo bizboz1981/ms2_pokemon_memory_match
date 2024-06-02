@@ -44,4 +44,4 @@
 21. How to play gif
 22. reset high scores button
 23. readme
-24. prevent 3 cards being turned at once
+24. prevent 3 cards being turned at once ✅
