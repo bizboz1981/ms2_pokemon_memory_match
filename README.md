@@ -133,4 +133,4 @@ When the player clicks 'Play', the menu items are hidden and the game board disp
 -   https://www.w3schools.com/howto/howto_css_flip_card.asp - transparent card background
 -   https://stackoverflow.com/questions/21664940/force-browser-to-trigger-reflow-while-changing-css, 
 https://stackoverflow.com/questions/27637184/what-is-dom-reflow - resize text/reflow
--   
+-   https://ferie.medium.com/detect-a-touch-device-with-only-css-9f8e30fa1134, https://stackoverflow.com/questions/62182220/how-to-target-only-landscape-mobile-devices-without-affecting-desktop-via-css - target mobile devices in landscape
