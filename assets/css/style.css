@@ -522,8 +522,8 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        top: 50%;
-        left: auto;
+        top: 30%;
+        font-size: large;
     }
     #main-menu, #header, #stats-container, #game-options, #high-scores, #how-to-play, #game, #you-win{
         display: none;
