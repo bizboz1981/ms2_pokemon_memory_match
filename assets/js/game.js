@@ -21,13 +21,15 @@ const youWin = document.getElementById("you-win");
 
 // Global Variables
 let numberOfPairs = parseInt(dropdown.value);
-let flippedCards = 0;
+let currentlyFlippedCards = 0;
+let totalFlippedCards = 0;
 let matchedPairs = 0;
 let score = 0;
 let turns = 0;
 let clicks = 0;
 let intervalId;
 let totalSec = 0;
+let isChecking = false;
 
 // Navigation Functions
 const showGameOptions = () => {
@@ -284,19 +286,29 @@ const displayCards = async (numberOfPairs) => {
  * If not already paired or flipped, it adds the 'flipped' css class, which triggers the flip animation
  */
 function flipCard() {
+    console.log("currentlyFlippedCards 0: ", currentlyFlippedCards);
+    console.log("totalFlippedCards 0: ", totalFlippedCards);
+    console.log("clicks 0: ", clicks);
+
+    // if (totalFlippedCards ===2) {
+    //     totalFlippedCards = 0;
+    //     return;}
     // Check if already flipped or paired; if so, ignore clicks...
     if (
         this.classList.contains("flipped") ||
-        this.classList.contains("paired")
+        this.classList.contains("paired") ||
+        isChecking
     ) {
-        return;
+    return;
     }
     // ... Otherwise, add class 'flipped to trigger animation and increment vars
     this.classList.add("flipped");
     clicks++;
-    flippedCards++;
+    currentlyFlippedCards++;
+    totalFlippedCards++;
+
     // When 2 cards are turned over, check if they match
-    if (flippedCards == 2) {
+    if (currentlyFlippedCards == 2) {
         checkCards();
         turns++;
         incrementTurns();
@@ -305,12 +317,16 @@ function flipCard() {
     if (clicks === 1) {
         timer();
     }
+    console.log("currentlyFlippedCards 1: ", currentlyFlippedCards);
+    console.log("totalFlippedCards 1: ", totalFlippedCards);
+    console.log("clicks 1: ", clicks);
 };
 
 /** 
  * Core logic for checking cards and invoking endGame when all pairs are matched
  */
 const checkCards = () => {
+    isChecking = true;
     // Push flipped card ids to an empty array
     let cardIds = [];
     const flippedToCheck = document.querySelectorAll(".flipped");
@@ -322,7 +338,7 @@ const checkCards = () => {
     if (cardIds[0] === cardIds[1]) {
         matchedPairs++;
         document.getElementById("score").innerHTML = score;
-        flippedCards = 0;
+        currentlyFlippedCards = 0;
         flippedToCheck.forEach(function (card) {
             card.classList.add("paired");
             card.classList.remove("flipped");
@@ -335,8 +351,15 @@ const checkCards = () => {
                 card.classList.remove("flipped");
             });
         }, 1000);
-        flippedCards = 0;
     }
+
+    // Reset currentlyFlippedCards and totalFlippedCards after processing the flipped cards
+    setTimeout(() => {
+        currentlyFlippedCards = 0;
+        totalFlippedCards = 0;
+        isChecking = false;
+    }, 1000);
+
 
     // If all pairs matched, end game
     if (matchedPairs === numberOfPairs) {
