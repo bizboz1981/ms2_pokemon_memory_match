@@ -112,18 +112,23 @@ const incrementTurns = () => {
  * Some Pokemon have very long names that overflow the edges of the card
  * This function decrements the text size of long names until the text fits on the card
  */
-const resizeText = (text) => {
-    let card = document.getElementsByClassName("card")[0];
-    if (!card) {
-        return;
-    }
-    let cardSize = document.getElementsByClassName("card")[0].offsetWidth;
-    let fontSize = parseInt(window.getComputedStyle(text).fontSize);
-    while (text.offsetWidth > cardSize) {
-        fontSize--;
-        text.style.fontSize = `${fontSize}px`;
-        text.style.bottom = "3px";
-    }
+const resizeText = () => {
+    const cards = document.getElementsByClassName("card");
+    Array.from(cards).forEach(card => {
+        let text = card.querySelector("h6");
+        if (!text) return;
+
+        let cardSize = card.offsetWidth;
+        let fontSize = parseInt(window.getComputedStyle(text).fontSize);
+
+        while (text.offsetWidth > cardSize) {
+            fontSize--;
+            text.style.fontSize = `${fontSize}px`;
+            text.style.bottom = "3px";
+            // Trigger a reflow by getting DOM property
+            text.offsetHeight;  
+        }
+    });
 };
 
 // Game start and end
@@ -133,7 +138,9 @@ const newGame = () => {
     game.innerHTML = "";
     game.classList.remove("hidden");
     gameOptions.classList.add("hidden");
-    displayCards(numberOfPairs);
+    displayCards(numberOfPairs).then(() => {
+        resizeText();
+    });
     resetGlobalVariables();
     resetGameStatsUI();
     setGridDimensions();
@@ -276,7 +283,7 @@ const displayCards = async (numberOfPairs) => {
         card.addEventListener("click", flipCard);
 
         let pokeName = card.querySelector("h6");
-        resizeText(pokeName);
+        // resizeText(pokeName);
     });
 };
 
