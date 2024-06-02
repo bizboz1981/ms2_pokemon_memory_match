@@ -21,8 +21,7 @@ const youWin = document.getElementById("you-win");
 
 // Global Variables
 let numberOfPairs = parseInt(dropdown.value);
-let currentlyFlippedCards = 0;
-let totalFlippedCards = 0;
+let flippedCards = 0;
 let matchedPairs = 0;
 let score = 0;
 let turns = 0;
@@ -286,13 +285,6 @@ const displayCards = async (numberOfPairs) => {
  * If not already paired or flipped, it adds the 'flipped' css class, which triggers the flip animation
  */
 function flipCard() {
-    console.log("currentlyFlippedCards 0: ", currentlyFlippedCards);
-    console.log("totalFlippedCards 0: ", totalFlippedCards);
-    console.log("clicks 0: ", clicks);
-
-    // if (totalFlippedCards ===2) {
-    //     totalFlippedCards = 0;
-    //     return;}
     // Check if already flipped or paired; if so, ignore clicks...
     if (
         this.classList.contains("flipped") ||
@@ -304,11 +296,10 @@ function flipCard() {
     // ... Otherwise, add class 'flipped to trigger animation and increment vars
     this.classList.add("flipped");
     clicks++;
-    currentlyFlippedCards++;
-    totalFlippedCards++;
+    flippedCards++;
 
     // When 2 cards are turned over, check if they match
-    if (currentlyFlippedCards == 2) {
+    if (flippedCards == 2) {
         checkCards();
         turns++;
         incrementTurns();
@@ -317,9 +308,6 @@ function flipCard() {
     if (clicks === 1) {
         timer();
     }
-    console.log("currentlyFlippedCards 1: ", currentlyFlippedCards);
-    console.log("totalFlippedCards 1: ", totalFlippedCards);
-    console.log("clicks 1: ", clicks);
 };
 
 /** 
@@ -338,7 +326,7 @@ const checkCards = () => {
     if (cardIds[0] === cardIds[1]) {
         matchedPairs++;
         document.getElementById("score").innerHTML = score;
-        currentlyFlippedCards = 0;
+        flippedCards = 0;
         flippedToCheck.forEach(function (card) {
             card.classList.add("paired");
             card.classList.remove("flipped");
@@ -353,10 +341,9 @@ const checkCards = () => {
         }, 1000);
     }
 
-    // Reset currentlyFlippedCards and totalFlippedCards after processing the flipped cards
+    // Reset flippedCards after processing the flipped cards
     setTimeout(() => {
-        currentlyFlippedCards = 0;
-        totalFlippedCards = 0;
+        flippedCards = 0;
         isChecking = false;
     }, 1000);
 
