@@ -33,9 +33,9 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    position: relative;
-    top: 0;
-    left: 0;
+    position: absolute;
+    top: 30%;
+    left: 45%;
     margin-top: 10px;
 }
 
@@ -50,6 +50,7 @@
     color: gold;
     text-align: center;
     margin-bottom: 10px;
+    margin-top: 25px;
     padding-bottom: 0px;
     text-shadow: -1px -1px 0 #ffa500, 1px -1px 0 #ffa500, -1px 1px 0 #ffa500,
         1px 1px 0 #ffa500;
@@ -111,22 +112,30 @@
     transform: scale(1.05);
 }
 
+#btn-back,
+#btn-back-1,
+#btn-back-2 {
+    background-image: linear-gradient(135deg, #f34079 40%, #fc894d);
+    opacity: 60%;
+    font-size: 1em !important;
+}
+
 @media screen and (max-width: 991px) {
-    .btn {
-        font-size: 15px;
-        height: 50px;
-    }
 
     .btn span {
         line-height: 50px;
     }
 }
+
 #game-options {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     margin-top: 10px;
+    position: absolute;
+    top: 30%;
+    left: 45%;
 }
 
 #dropdown {
@@ -147,13 +156,18 @@
 }
 
 #high-scores {
+    width: 50%;
+    top: 25%;
+    left: 45%;
+    display: flex;
+    flex-direction: column;
     font-family: "Maven Pro", monospace;
     font-size: 2em;
     justify-content: center;
     align-items: center;
-    position: relative;
-    display: none;
+    position: absolute;
 }
+
 
 .card[data-pokemon-type="bug"] .card-front {
     background-color: #739f40;
@@ -246,8 +260,8 @@
 }
 
 .card .card-inner {
-    width: 150px;
-    height: 150px;
+    width: 200px;
+    height: 200px;
     position: relative;
     position: relative;
     border-radius: 5px;
@@ -267,7 +281,7 @@
 }
 
 .card img {
-    width: 100px;
+    width: 133px;
     object-fit: cover;
     margin: auto;
     z-index: 1;
@@ -317,7 +331,7 @@
 .card-front h6 {
     position: absolute;
     bottom: 0px;
-    font-size: 18px;
+    font-size: 22px;
     font-weight: light;
     font-family: "Maven Pro";
     letter-spacing: 2px;
@@ -341,14 +355,115 @@
 
 #how-to-play {
     width: 50%;
-    left: 30%;
+    top: 30%;
+    left: 25%;
     display: flex;
     flex-direction: column;
     font-family: "Maven Pro", monospace;
     font-size: 1em;
     justify-content: center;
     align-items: center;
-    position: relative;
+    position: absolute;
+}
+
+@media screen and (max-width: 992px) {
+    #game {
+        display: grid;
+        gap: 10px;
+        width: fit-content;
+        margin: auto;
+        grid-template-columns: repeat(4, 1fr) !important;
+    }
+
+    .card .card-inner {
+        width: 150px;
+        height: 150px;
+    }
+
+    .card img {
+        width: 100px;
+    }
+
+    .card-front h6 {
+        position: absolute;
+        bottom: 0px;
+        font-size: 18px;
+        font-weight: light;
+        font-family: "Maven Pro";
+        letter-spacing: 1.5px;
+        white-space: nowrap;
+    }
+
+    #header {
+        font-size: 4em;
+    }
+
+    .stats {
+        font-family: "Maven Pro", monospace;
+        font-size: 2em;
+    }
+
+    #new-game {
+        font-size: 2em;
+    }
+
+    #btn {
+        font-size: 1em;
+    }
+
+    .celebrate {
+        font-size: 4em;
+    }
+}
+
+@media screen and (max-width: 768px) and (orientation: portrait) {
+    #game {
+        display: grid;
+        gap: 10px;
+        width: fit-content;
+        margin: auto;
+        grid-template-columns: repeat(4, 1fr) !important;
+    }
+
+    .card .card-inner {
+        width: 100px;
+        height: 100px;
+    }
+
+    .card img {
+        width: 75px;
+    }
+
+    .card-front h6 {
+        position: absolute;
+        bottom: 0px;
+        font-size: 14px;
+        font-weight: light;
+        font-family: "Maven Pro";
+        letter-spacing: 1px;
+        white-space: nowrap;
+    }
+
+    #header {
+        font-size: 3em;
+    }
+
+    .stats {
+        font-family: "Maven Pro", monospace;
+        font-size: 1.5em;
+    }
+
+    #new-game {
+        font-size: 1.5em;
+    }
+
+    #btn {
+        font-size: 1em;
+    }
+
+    .celebrate {
+        font-size: 3em;
+    }
 }
 
 @media screen and (max-width: 576px) and (orientation: portrait) {
@@ -372,7 +487,7 @@
     .card-front h6 {
         position: absolute;
         bottom: 0px;
-        font-size: 9px;
+        font-size: 10px;
         font-weight: light;
         font-family: "Maven Pro";
         letter-spacing: 1px;
@@ -393,7 +508,7 @@
     }
 
     #btn {
-        font-size: x-small !important;
+        font-size: 1em;
     }
 
     .celebrate {
