@@ -113,6 +113,12 @@ This project is intentionally built using vanilla javascript, css and html. Howe
 ### Online Validation Services
 
 ### Lighthouse
+The results of the Lighthouse report were satisfactory:  
+<img src="assets/docs/lighthouse-report.png" alt="Lighthouse Report" title="Lighthouse Report" width="50%">
+
+### Web Aim Contrast Check
+The results of the contrast check were satisfactory:
+<img src="assets/docs/contrast-check.png" alt="Contrast checker" title="Web Aim Conrast Check" width="50%">
 
 ### Bugs
 
@@ -158,3 +164,4 @@ This project is intentionally built using vanilla javascript, css and html. Howe
 -   https://stackoverflow.com/questions/21664940/force-browser-to-trigger-reflow-while-changing-css, 
 https://stackoverflow.com/questions/27637184/what-is-dom-reflow - resize text/reflow
 -   https://ferie.medium.com/detect-a-touch-device-with-only-css-9f8e30fa1134, https://stackoverflow.com/questions/62182220/how-to-target-only-landscape-mobile-devices-without-affecting-desktop-via-css - target mobile devices in landscape
+-   https://developer.chrome.com/docs/lighthouse/seo/meta-description/?utm_source=lighthouse&utm_medium=devtools - for SEO
