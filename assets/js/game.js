@@ -423,7 +423,7 @@ const showHighScore = () => {
     for (let i = 0; i < highScores.length; i++) {
         html += `<li>${highScores[i]}</li>`;
     }
-    html += `</ol><button id="btn-back-1" class="btn" style="font-size: 1em;">Back</button>`;
+    html += `</ol><button id="btn-back-1" class="btn" aria-label="Back button">Back</button>`;
     // Set inner html to completed 'html' string
     highScoreDiv.innerHTML = html;
     highScoreDiv.style.display = "block";
