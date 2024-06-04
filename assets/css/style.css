@@ -43,17 +43,30 @@
     display: none !important;
 }
 
+h1 > img {
+    display: block;
+    margin: 0 auto;
+    margin-top: 10px;
+    margin-bottom: 0px;
+}
+
+
 #header {
+    height: 99px;
+    width: 269px;
+}
+#subhead, #high-scores-header{
     position: relative;
-    font-size: 4em;
+    font-size: 2em;
     font-family: "Maven Pro", monospace;
-    color: gold;
+    color:  #3a5aa7;
     text-align: center;
-    margin-bottom: 10px;
-    margin-top: 25px;
+    margin-bottom: 0px;
+    margin-top: 10px;
     padding-bottom: 0px;
-    text-shadow: -1px -1px 0 #ffa500, 1px -1px 0 #ffa500, -1px 1px 0 #ffa500,
-        1px 1px 0 #ffa500;
+    text-shadow: -3px -3px 0 #ffcc01;
+    letter-spacing: 3px;
+    font-weight: bolder;
 }
 
 #stats-container {
@@ -84,11 +97,11 @@
     width: 150px;
     height: 50px;
     align-items: center;
-    background-image: linear-gradient(135deg, #f34079 40%, #fc894d);
+    background-image: linear-gradient(135deg, #ffcc01 40%, #fc894d);
     border: 0;
     border-radius: 10px;
     box-sizing: border-box;
-    color: #fff;
+    color: #3a5aa7;
     cursor: pointer;
     display: flex;
     flex-direction: column;
@@ -115,9 +128,10 @@
 #btn-back,
 #btn-back-1,
 #btn-back-2 {
-    background-image: linear-gradient(135deg, #f34079 40%, #fc894d);
+    background-image: linear-gradient(135deg, #3a5aa7 40%, #0e2f7a);
     opacity: 60%;
     font-size: 1em !important;
+    color: #ffcc01;
 }
 
 @media screen and (max-width: 991px) {
@@ -162,12 +176,19 @@
     display: flex;
     flex-direction: column;
     font-family: "Maven Pro", monospace;
-    font-size: 2em;
     justify-content: center;
     align-items: center;
     position: absolute;
 }
 
+#high-scores #high-scores-header {
+    left: -33%;
+}
+
+#high-scores ol {
+    font-size: 2em;
+
+}
 
 .card[data-pokemon-type="bug"] .card-front {
     background-color: #739f40;
