@@ -169,6 +169,13 @@ h1 > img {
     margin: auto;
 }
 
+#high-score-head-div {
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+    width: 100%;
+    position: relative;
+}
 #high-scores {
     width: 50%;
     top: 25%;
@@ -181,8 +188,9 @@ h1 > img {
     position: absolute;
 }
 
-#high-scores #high-scores-header {
-    left: -33%;
+#high-score-head-div #high-scores-header {
+    text-align: left;
+    position: relative;
 }
 
 #high-scores ol {

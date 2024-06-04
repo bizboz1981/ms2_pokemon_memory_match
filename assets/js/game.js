@@ -419,7 +419,7 @@ const showHighScore = () => {
     highScoreDiv.classList.remove("hidden");
     highScoreDiv.innerHTML = "";
     // iteratively create html content as 'html' var
-    let html = `<h2 id="high-scores-header">High Scores</h2><ol>`;
+    let html = `<div id="high-score-head-div"><h2 id="high-scores-header">High Scores</h2></div><ol>`;
     for (let i = 0; i < highScores.length; i++) {
         html += `<li>${highScores[i]}</li>`;
     }
