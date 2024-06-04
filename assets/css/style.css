@@ -1,5 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Maven+Pro:wght@400..900&display=swap");
 
+html {
+    font-family: "Maven Pro", monospace;
+    font-size: 1em;
+}
+
 #background {
     position: absolute;
     top: 0;
@@ -27,15 +32,25 @@
     z-index: -10;
 }
 
+#interactive-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    margin: 0 auto;
+}
+
 /* ---------------------------------------------------------------main menu */
 #main-menu {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    position: absolute;
-    top: 30%;
-    left: calc(50% - 75px);
+    position: relative;
     margin-top: 10px;
 }
 
@@ -55,7 +70,8 @@ h1 > img {
     height: 99px;
     width: 269px;
 }
-#subhead, #high-scores-header{
+
+h2 {
     position: relative;
     font-size: 2em;
     font-family: "Maven Pro", monospace;
@@ -64,7 +80,7 @@ h1 > img {
     margin-bottom: 0px;
     margin-top: 10px;
     padding-bottom: 0px;
-    text-shadow: -3px -3px 0 #ffcc01;
+    text-shadow: -3px -3px 0 #FFD21F;
     letter-spacing: 3px;
     font-weight: bolder;
 }
@@ -89,15 +105,9 @@ h1 > img {
 
 .btn,
 #dropdown {
-    margin: 10px;
-    padding: 10px;
-    font-family: "Maven Pro", monospace;
-    font-size: 1em;
-    z-index: 100;
-    width: 150px;
-    height: 50px;
+    -webkit-user-select: none;
     align-items: center;
-    background-image: linear-gradient(135deg, #ffcc01 40%, #fc894d);
+    background-image: linear-gradient(135deg, #FFD21F 40%, #fc894d);
     border: 0;
     border-radius: 10px;
     box-sizing: border-box;
@@ -105,20 +115,22 @@ h1 > img {
     cursor: pointer;
     display: flex;
     flex-direction: column;
+    font-family: "Maven Pro", monospace;
+    font-size: 1em;
     font-weight: 700;
+    height: 50px;
     justify-content: center;
     letter-spacing: 0.4px;
     line-height: 1;
+    margin: 10px;
     max-width: 100%;
+    padding: 10px;
     text-decoration: none;
-    user-select: none;
-    -webkit-user-select: none;
     touch-action: manipulation;
     transition: transform 0.3s ease;
-}
-
-.btn:active {
-    outline: 0;
+    user-select: none;
+    width: 150px;
+    z-index: 100;
 }
 
 .btn:hover {
@@ -130,8 +142,15 @@ h1 > img {
 #btn-back-2 {
     background-image: linear-gradient(135deg, #3a5aa7 40%, #0e2f7a);
     opacity: 60%;
-    font-size: 1em !important;
-    color: #ffcc01;
+    font-size: 1em;
+    color: #FFD21F;
+    position: relative;
+}
+
+#btn-back-1 {
+    position: relative;
+    top: 0;
+    left: 10%;
 }
 
 @media screen and (max-width: 991px) {
@@ -169,33 +188,19 @@ h1 > img {
     margin: auto;
 }
 
-#high-score-head-div {
-    justify-content: center;
-    align-items: center;
-    margin-top: 10px;
-    width: 100%;
-    position: relative;
-}
 #high-scores {
-    width: 50%;
-    top: 25%;
-    left: calc(50% - 75px);
+    width:auto;
     display: flex;
-    flex-direction: column;
     font-family: "Maven Pro", monospace;
     justify-content: center;
     align-items: center;
-    position: absolute;
-}
-
-#high-score-head-div #high-scores-header {
-    text-align: left;
-    position: relative;
 }
 
 #high-scores ol {
     font-size: 2em;
-
+    position:relative;
+    margin: 0 auto;
+    left: 25%;
 }
 
 .card[data-pokemon-type="bug"] .card-front {
@@ -359,7 +364,7 @@ h1 > img {
 
 .card-front h6 {
     position: absolute;
-    bottom: 0px;
+    bottom: -35px;
     font-size: 22px;
     font-weight: light;
     font-family: "Maven Pro";
@@ -415,7 +420,7 @@ h1 > img {
 
     .card-front h6 {
         position: absolute;
-        bottom: 0px;
+        bottom: -30px;
         font-size: 18px;
         font-weight: light;
         font-family: "Maven Pro";
@@ -465,7 +470,7 @@ h1 > img {
 
     .card-front h6 {
         position: absolute;
-        bottom: 0px;
+        bottom: -25px;
         font-size: 14px;
         font-weight: light;
         font-family: "Maven Pro";
@@ -515,7 +520,7 @@ h1 > img {
 
     .card-front h6 {
         position: absolute;
-        bottom: 0px;
+        bottom: -20px;
         font-size: 10px;
         font-weight: light;
         font-family: "Maven Pro";
@@ -542,6 +547,15 @@ h1 > img {
 
     .celebrate {
         font-size: 2em;
+    }
+
+    #high-scores ol {
+        font-size: 1em;
+    }
+
+    h2 {
+        font-size: 1.5em;
+    
     }
 }
 
