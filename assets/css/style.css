@@ -356,7 +356,7 @@ h2 {
     position: absolute;
     bottom: -35px;
     font-size: 22px;
-    font-weight: light;
+    font-weight: 400;
     font-family: "Maven Pro";
     letter-spacing: 2px;
     white-space: nowrap;
@@ -496,7 +496,6 @@ h2 {
         display: flex;
         justify-content: center;
         align-items: center;
-        top: 20%;
         font-size: large;
     }
     h2, #main-menu, #stats-container, #game-options, #high-scores, #how-to-play, #game, #you-win{
