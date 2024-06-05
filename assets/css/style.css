@@ -402,10 +402,10 @@ h2 {
 
 @media screen and (max-width: 992px) {
     #game {
-        display: grid;
+        /* display: grid;
         gap: 10px;
         width: fit-content;
-        margin: auto;
+        margin: auto; */
         grid-template-columns: repeat(4, 1fr) !important;
     }
 
@@ -419,31 +419,31 @@ h2 {
     }
 
     .card-front h6 {
-        position: absolute;
+        /* position: absolute; */
         bottom: -30px;
         font-size: 18px;
-        font-weight: light;
-        font-family: "Maven Pro";
+        /* font-weight: light;
+        font-family: "Maven Pro"; */
         letter-spacing: 1.5px;
-        white-space: nowrap;
+        /* white-space: nowrap; */
     }
 
-    #header {
+    /* #header {
         font-size: 3em;
-    }
+    } */
 
     .stats {
-        font-family: "Maven Pro", monospace;
+        /* font-family: "Maven Pro", monospace; */
         font-size: 2em;
     }
 
-    #new-game {
+    /* #new-game {
         font-size: 2em;
-    }
+    } */
 
-    #btn {
+    /* #btn {
         font-size: 1em;
-    }
+    } */
 
     .celebrate {
         font-size: 4em;
@@ -451,13 +451,13 @@ h2 {
 }
 
 @media screen and (max-width: 768px) and (orientation: portrait) {
-    #game {
+    /* #game {
         display: grid;
         gap: 10px;
         width: fit-content;
         margin: auto;
         grid-template-columns: repeat(4, 1fr) !important;
-    }
+    } */
 
     .card .card-inner {
         width: 100px;
@@ -469,45 +469,54 @@ h2 {
     }
 
     .card-front h6 {
-        position: absolute;
+        /* position: absolute; */
         bottom: -25px;
         font-size: 14px;
-        font-weight: light;
-        font-family: "Maven Pro";
+        /* font-weight: light; */
+        /* font-family: "Maven Pro"; */
         letter-spacing: 1px;
-        white-space: nowrap;
+        /* white-space: nowrap; */
     }
 
-    #header {
+    /* #header {
         font-size: 2em;
-    }
+    } */
 
     .stats {
-        font-family: "Maven Pro", monospace;
+        /* font-family: "Maven Pro", monospace; */
         font-size: 1.5em;
     }
 
-    #new-game {
+    /* #new-game {
         font-size: 1.5em;
-    }
+    } */
 
-    #btn {
+    /* #btn {
         font-size: 1em;
-    }
+    } */
 
     .celebrate {
         font-size: 3em;
     }
+
+    h2 {
+        font-size: 1.5em;
+    }
+
+    #high-scores ol {
+        font-size: 1.5em;
+    }
+
 }
 
 @media screen and (max-width: 576px) and (orientation: portrait) {
-    #game {
+    /* #game {
         display: grid;
         gap: 10px;
         width: fit-content;
         margin: auto;
         grid-template-columns: repeat(4, 1fr) !important;
-    }
+    } */
 
     .card .card-inner {
         width: 75px;
@@ -519,31 +528,31 @@ h2 {
     }
 
     .card-front h6 {
-        position: absolute;
+        /* position: absolute; */
         bottom: -20px;
         font-size: 10px;
-        font-weight: light;
+        /* font-weight: light;
         font-family: "Maven Pro";
         letter-spacing: 1px;
-        white-space: nowrap;
+        white-space: nowrap; */
     }
 
-    #header {
+    /* #header {
         font-size: 1em;
-    }
+    } */
 
     .stats {
-        font-family: "Maven Pro", monospace;
+        /* font-family: "Maven Pro", monospace; */
         font-size: 1em;
     }
 
-    #new-game {
+    /* #new-game {
         font-size: 1em;
-    }
+    } */
 
-    #btn {
+    /* #btn {
         font-size: 1em;
-    }
+    } */
 
     .celebrate {
         font-size: 2em;
@@ -553,10 +562,9 @@ h2 {
         font-size: 1em;
     }
 
-    h2 {
+    /* h2 {
         font-size: 1.5em;
-    
-    }
+    } */
 }
 
 @media (orientation: landscape) and (hover: none) and (pointer:coarse) {
