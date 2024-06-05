@@ -187,7 +187,8 @@ const resetGameStatsUI = () => {
  * Asynchronously load the required number of Pokemon
  * Returns an array parsed to json format
  * If api fails (returns non-200 range response) backup Pokemon get loaded instead
- * Inspired by https://github.com/jamesqquick/javascript-memory-match/blob/master/app.js
+ * Initial function template taken https://github.com/jamesqquick/javascript-memory-match/blob/master/app.js
+ * Please note: this function has evolved significantly from the original template
  */
 const loadPokemon = async (numberOfPairs) => {
     try {
