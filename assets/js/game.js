@@ -125,7 +125,7 @@ const resizeText = () => {
         while (text.offsetWidth > cardSize) {
             fontSize--;
             text.style.fontSize = `${fontSize}px`;
-            text.style.bottom = "3px";
+            text.style.bottom = "-20px";
             // Trigger a reflow by getting DOM property
             text.offsetHeight;  
         }
@@ -284,7 +284,6 @@ const displayCards = async (numberOfPairs) => {
         card.addEventListener("click", flipCard);
 
         let pokeName = card.querySelector("h6");
-        // resizeText(pokeName);
     });
 };
 
