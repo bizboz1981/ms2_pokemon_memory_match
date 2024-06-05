@@ -125,7 +125,7 @@ const resizeText = () => {
         while (text.offsetWidth > cardSize) {
             fontSize--;
             text.style.fontSize = `${fontSize}px`;
-            text.style.bottom = "0px";
+            text.style.bottom = "-10px";
             // Trigger a reflow by getting DOM property
             text.offsetHeight;  
         }
