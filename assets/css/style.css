@@ -153,22 +153,13 @@ h2 {
     left: 10%;
 }
 
-@media screen and (max-width: 991px) {
-
-    .btn span {
-        line-height: 50px;
-    }
-}
-
 #game-options {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     margin-top: 10px;
-    position: absolute;
-    top: 30%;
-    left: calc(50% - 75px);
+    position: relative;
 }
 
 #dropdown {
@@ -297,7 +288,6 @@ h2 {
     width: 200px;
     height: 200px;
     position: relative;
-    position: relative;
     border-radius: 5px;
     display: flex;
     justify-content: center;
@@ -377,14 +367,14 @@ h2 {
 }
 
 #you-win h1 {
-    display: flex;
+    display: block;
     font-family: "Maven Pro", monospace;
     font-size: 6em !important;
     font-weight: bold;
     color: gold;
-    position: absolute;
-    top: 30vh;
-    left: 40%;
+    position: relative;
+    justify-content: center;
+    align-items: center;
 }
 
 #how-to-play {
@@ -402,10 +392,6 @@ h2 {
 
 @media screen and (max-width: 992px) {
     #game {
-        /* display: grid;
-        gap: 10px;
-        width: fit-content;
-        margin: auto; */
         grid-template-columns: repeat(4, 1fr) !important;
     }
 
@@ -419,31 +405,14 @@ h2 {
     }
 
     .card-front h6 {
-        /* position: absolute; */
         bottom: -30px;
         font-size: 18px;
-        /* font-weight: light;
-        font-family: "Maven Pro"; */
         letter-spacing: 1.5px;
-        /* white-space: nowrap; */
     }
-
-    /* #header {
-        font-size: 3em;
-    } */
 
     .stats {
-        /* font-family: "Maven Pro", monospace; */
         font-size: 2em;
     }
-
-    /* #new-game {
-        font-size: 2em;
-    } */
-
-    /* #btn {
-        font-size: 1em;
-    } */
 
     .celebrate {
         font-size: 4em;
@@ -451,13 +420,6 @@ h2 {
 }
 
 @media screen and (max-width: 768px) and (orientation: portrait) {
-    /* #game {
-        display: grid;
-        gap: 10px;
-        width: fit-content;
-        margin: auto;
-        grid-template-columns: repeat(4, 1fr) !important;
-    } */
 
     .card .card-inner {
         width: 100px;
@@ -469,31 +431,14 @@ h2 {
     }
 
     .card-front h6 {
-        /* position: absolute; */
         bottom: -25px;
         font-size: 14px;
-        /* font-weight: light; */
-        /* font-family: "Maven Pro"; */
         letter-spacing: 1px;
-        /* white-space: nowrap; */
     }
-
-    /* #header {
-        font-size: 2em;
-    } */
 
     .stats {
-        /* font-family: "Maven Pro", monospace; */
         font-size: 1.5em;
     }
-
-    /* #new-game {
-        font-size: 1.5em;
-    } */
-
-    /* #btn {
-        font-size: 1em;
-    } */
 
     .celebrate {
         font-size: 3em;
@@ -513,13 +458,10 @@ h2 {
 }
 
 @media screen and (max-width: 576px) and (orientation: portrait) {
-    /* #game {
-        display: grid;
-        gap: 10px;
-        width: fit-content;
-        margin: auto;
-        grid-template-columns: repeat(4, 1fr) !important;
-    } */
+
+    #you-win h1 {
+        font-size: 2em !important;
+    }
 
     .card .card-inner {
         width: 75px;
@@ -531,31 +473,13 @@ h2 {
     }
 
     .card-front h6 {
-        /* position: absolute; */
         bottom: -20px;
         font-size: 10px;
-        /* font-weight: light;
-        font-family: "Maven Pro";
-        letter-spacing: 1px;
-        white-space: nowrap; */
     }
-
-    /* #header {
-        font-size: 1em;
-    } */
 
     .stats {
-        /* font-family: "Maven Pro", monospace; */
         font-size: 1em;
     }
-
-    /* #new-game {
-        font-size: 1em;
-    } */
-
-    /* #btn {
-        font-size: 1em;
-    } */
 
     .celebrate {
         font-size: 2em;
@@ -564,13 +488,6 @@ h2 {
     #high-scores ol {
         font-size: 1em;
     }
-
-    /* #btn-back-1 {
-        left: -10%;
-    } */
-    /* h2 {
-        font-size: 1.5em;
-    } */
 }
 
 @media (orientation: landscape) and (hover: none) and (pointer:coarse) {
