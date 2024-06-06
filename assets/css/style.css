@@ -390,6 +390,28 @@ h2 {
     position: absolute;
 }
 
+footer {
+    position: fixed;
+    bottom: 10px;
+    left: 0;
+    width: 100%;
+    color: #6c6c6c;
+}
+
+footer a {
+    color: #4d4d4d;
+}
+
+#footer-left {
+    float: left;
+    margin-left: 50px;
+}
+
+#footer-right {
+    float: right;
+    margin-right: 50px;
+}
+
 @media screen and (max-width: 992px) {
     #game {
         grid-template-columns: repeat(4, 1fr) !important;
