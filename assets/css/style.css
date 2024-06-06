@@ -284,6 +284,16 @@ h2 {
     border-radius: 5px;
 }
 
+#pink {
+    background-color: #f366b9;
+    color: white;
+}
+
+#purple {
+    background-color: #b97fc8;
+    color: white;
+}
+
 .card .card-inner {
     width: 200px;
     height: 200px;
