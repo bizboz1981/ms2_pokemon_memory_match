@@ -168,7 +168,7 @@ CSS Received a clean bill of health: no errors and just a single warning that -w
 <img src="assets/docs/css-validation.png" alt="css validator" title="CSS Validator">
 
 ### Bugs
-The game does not work well on mobile devices in landscape mode. A media query was therefore added to target landscape mobiles and then to hide all game content (except the title) and display a message to turn the phone to portrait mode.
+The game does not work well on mobile devices in landscape mode. A media query was therefore added to target landscape mobiles and then to hide all game content (except the title) and display a message to turn the phone to portrait mode. If users attempt to play in the very small desktop browser window in landscape mode on a desktop or laptop device, the cards may not render correctly. This can be fixed by enlarging the screen.
 
 ![landscape-mobile](assets/docs/landscape-mobile.jpeg)
 
