@@ -116,7 +116,7 @@ I have credited specific resources throughout the code, but during my learning j
 2. Challenge Themselves by Beating Previous Scores or Times:
 - A scoreboard or timer feature allows returning players to track their progress and aim to improve their performance in subsequent sessions.
 3. Provide Feedback About the Game:
-- Not currently developed.
+- If there's a bug in the game that users experience, I, the developer, need to know about it in order to fix it. Otherwise no one will play the game anymore. This is an essential feature. However, developing a feedback form was beyond the scope of this project, so I have therefore just created an email link in the footer.
 ### Frequent Visitor Goals
 1. Display Highest Scores and Fastest Times:
 - The game tracks and displays the highest scores, providing frequent visitors with clear goals and incentives to keep playing.
@@ -224,7 +224,6 @@ In addition to the technologies used, I would like to credit the following for i
 -   https://stackoverflow.com/questions/55175428/the-this-keyword-not-working-with-arrow-functions /// cannot use 'this.' inside arrow functions, refactor to regular func
 -   https://stackoverflow.com/questions/17123327/align-text-to-the-bottom-of-a-div - align text in cardgood
 -   https://css-tricks.com/almanac/selectors/a/attribute/ - use data attr as css selectors
--   https://www.pokemon.com/us/pokemon-virtual-backgrounds/ = background image
 -   https://stackoverflow.com/questions/6890218/css-background-image-opacity - background opacity
 -   https://stackoverflow.com/questions/31559469/how-to-create-a-simple-javascript-timer - add a timer
 -   https://developer.mozilla.org/en-US/docs/Web/API/clearInterval - clear timer
