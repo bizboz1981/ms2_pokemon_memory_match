@@ -190,7 +190,8 @@ h2 {
 #how-to-play {
     width: 66%;
     top: 30%;
-margin: auto;
+    margin: auto;
+    margin-bottom: 50px;
     display: flex;
     flex-direction: column;
     font-family: "Maven Pro", monospace;
