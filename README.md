@@ -168,7 +168,7 @@ CSS Received a clean bill of health: no errors and just a single warning that -w
 <img src="assets/docs/css-validation.png" alt="css validator" title="CSS Validator">
 
 ### Bugs
-The game does not work well on mobile devices in landscape mode. A media query was therefore added to target landscape mobiles and then to hide all game content (except the title) and display a message to turn the phone to portrait mode. If users attempt to play in the very small desktop browser window in landscape mode on a desktop or laptop device, the cards may not render correctly. This can be fixed by enlarging the screen.
+The game does not work well on mobile devices in landscape mode. A media query was therefore added to target landscape mobiles and then to hide all game content (except the title) and display a message to turn the phone to portrait mode. If users attempt to play in the very small desktop browser window in landscape mode on a desktop or laptop device, the cards may not render correctly. This can be fixed by enlarging the screen. If you click on the Pokemon logo in landscape mode on a mobile, it displays the main menu, which is undesirable behaviour. This is judged to be sufficiently 'edge-case' to be acceptable to deploy the game and fix this issue in a future version.
 
 ![landscape-mobile](assets/docs/landscape-mobile.jpeg)
 
