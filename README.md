@@ -169,7 +169,7 @@ CSS Received a clean bill of health: no errors and just a single warning that -w
 <img src="assets/docs/css-validation.png" alt="css validator" title="CSS Validator">
 
 ### JS Validator
-JS Received a clean bill of health.
+JS Received a clean bill of health from jshint as well as the below online validator.
 <img src="assets/docs/js-linter.png" alt="css validator" title="JS Validator">
 
 ### Bugs
@@ -218,6 +218,7 @@ In addition to the technologies used, I would like to credit the following for i
 
 
 # References & Resources Used
+Below is an extensive, but not exhaustive list of sources of information. To include the full list of references would be impractical as I have read so much that has been of use and inspiration. These are some notable links:
 
 -   https://photics.com/flipping-a-card-with-html-css-javascript/
 -   https://www.thatsoftwaredude.com/content/6196/coding-a-card-deck-in-javascript

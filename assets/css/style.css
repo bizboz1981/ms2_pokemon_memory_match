@@ -48,7 +48,6 @@ html {
 
 /* --------------------------------------------------------------- Headers */
 
-
 .hidden {
     display: none !important;
 }
@@ -59,7 +58,6 @@ h1 > img {
     margin-top: 10px;
     margin-bottom: 0px;
 }
-
 
 #header {
     height: 99px;
@@ -79,8 +77,6 @@ h2 {
     letter-spacing: 3px;
     font-weight: bolder;
 }
-
-
 
 /*  Buttons -------------------------------------------------------------------  Buttons */
 
@@ -133,7 +129,6 @@ h2 {
     top: 0;
     left: 10%;
 }
-
 
 /* game board ------------------------------------------------------------- game board */
 
@@ -231,7 +226,6 @@ h2 {
 }
 
 /* ------------------------------------------------------------------------ Colours */
-
 
 .card[data-pokemon-type="bug"] .card-front {
     background-color: #739f40;
@@ -335,7 +329,6 @@ h2 {
 
 /* ------------------------------------------------------------------------ cards and flip animation */
 
-
 .card .card-inner {
     width: 200px;
     height: 200px;
@@ -417,7 +410,6 @@ h2 {
 .card.flipped .card-inner {
     transform: rotateY(180deg);
 }
-
 
 /* ------------------------------------------------------------------------ Footer */
 
