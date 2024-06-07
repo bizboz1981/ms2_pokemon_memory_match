@@ -19,6 +19,9 @@ const howToPlay = document.getElementById("how-to-play");
 const scoreElement = document.getElementById("score");
 const dropdown = document.getElementById("dropdown");
 const youWin = document.getElementById("you-win");
+const header = document.getElementById("header");
+const highScoreDiv = document.getElementById("high-scores");
+
 
 // Global Variables
 let numberOfPairs = parseInt(dropdown.value);
@@ -48,6 +51,7 @@ const showMainMenu = () => {
     gameOptions.classList.add("hidden");
     howToPlay.classList.add("hidden");
     highScoreDiv.classList.add("hidden");
+    game.classList.add("hidden");
 };
 
 // Helper Functions
@@ -439,6 +443,7 @@ btnNewGame.addEventListener("click", showGameOptions);
 btnHowToPlay.addEventListener("click", showHowToPlay);
 btnBack.addEventListener("click", showMainMenu);
 btnBack2.addEventListener("click", showMainMenu);
+header.addEventListener("click", showMainMenu);
 dropdown.addEventListener("change", function () {
     numberOfPairs = parseInt(this.value);
 });
