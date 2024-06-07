@@ -441,6 +441,7 @@ const showHighScore = () => {
 };
 
 // Add Event Listeners
+window.addEventListener("resize", resizeText);
 btnPlay.addEventListener("click", newGame);
 btnNewGame.addEventListener("click", showGameOptions);
 btnHowToPlay.addEventListener("click", showHowToPlay);
