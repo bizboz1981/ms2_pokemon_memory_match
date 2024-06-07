@@ -283,8 +283,6 @@ const displayCards = async (numberOfPairs) => {
     shuffledDeck.forEach((card) => {
         game.appendChild(card);
         card.addEventListener("click", flipCard);
-
-        let pokeName = card.querySelector("h6");
     });
 };
 
