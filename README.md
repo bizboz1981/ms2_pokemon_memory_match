@@ -98,6 +98,7 @@ I have credited specific resources throughout the code, but during my learning j
 
 <!--------------------------------------------------------Testing -->
 # Testing
+Extensive manual testing has been undertaken by myself as well as numerous friends, family and, most importantly, my children. Feedback has generally been positive, but where constructive criticism has been offered, I have attended to it. For example, one beta-tester disliked the look and feel of my original logo and buttons. I therefore updated them to be more on-brand for Pokemon, by using the official logo (after checking the license permitted me to do so).
 ## User Testing
 ### First Time Visitor Goals & Experience
 1. Understand the Main Purpose and How to Play:
@@ -166,6 +167,10 @@ HTML Validator - the game received a clean bill of health, with no errors or war
 ### CSS Validator
 CSS Received a clean bill of health: no errors and just a single warning that -webkit-user-select is a vendor extension.  
 <img src="assets/docs/css-validation.png" alt="css validator" title="CSS Validator">
+
+### JS Validator
+JS Received a clean bill of health.
+<img src="assets/docs/js-linter.png" alt="css validator" title="JS Validator">
 
 ### Bugs
 The game does not work well on mobile devices in landscape mode. A media query was therefore added to target landscape mobiles and then to hide all game content (except the title) and display a message to turn the phone to portrait mode. If users attempt to play in the very small desktop browser window in landscape mode on a desktop or laptop device, the cards may not render correctly. This can be fixed by enlarging the screen. If you click on the Pokemon logo in landscape mode on a mobile, it displays the main menu, which is undesirable behaviour. This is judged to be sufficiently 'edge-case' to be acceptable to deploy the game and fix this issue in a future version.
