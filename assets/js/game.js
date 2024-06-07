@@ -52,6 +52,9 @@ const showMainMenu = () => {
     howToPlay.classList.add("hidden");
     highScoreDiv.classList.add("hidden");
     game.classList.add("hidden");
+    clearInterval(intervalId);
+    resetGlobalVariables();
+    resetGameStatsUI();
 };
 
 // Helper Functions
