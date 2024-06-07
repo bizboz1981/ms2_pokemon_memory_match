@@ -22,7 +22,6 @@ const youWin = document.getElementById("you-win");
 const header = document.getElementById("header");
 const highScoreDiv = document.getElementById("high-scores");
 
-
 // Global Variables
 let numberOfPairs = parseInt(dropdown.value);
 let flippedCards = 0;
