@@ -1,5 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Maven+Pro:wght@400..900&display=swap");
 
+/* --------------------------------------------------------------- Background and containers */
+
 html {
     font-family: "Maven Pro", monospace;
     font-size: 1em;
@@ -44,15 +46,8 @@ html {
     margin: 0 auto;
 }
 
-/* ---------------------------------------------------------------main menu */
-#main-menu {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    margin-top: 10px;
-}
+/* --------------------------------------------------------------- Headers */
+
 
 .hidden {
     display: none !important;
@@ -85,21 +80,7 @@ h2 {
     font-weight: bolder;
 }
 
-#stats-container {
-    display: flex;
-    align-items: center;
-    width: 100%;
-    justify-content: space-evenly;
-    position: relative;
-    left: 0;
-    top: 0;
-    margin-top: 10px;
-}
 
-.stats {
-    font-family: "Maven Pro", monospace;
-    font-size: 2em;
-}
 
 /*  Buttons -------------------------------------------------------------------  Buttons */
 
@@ -153,18 +134,7 @@ h2 {
     left: 10%;
 }
 
-#game-options {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin-top: 10px;
-    position: relative;
-}
 
-#dropdown {
-    width: 75px;
-}
 /* game board ------------------------------------------------------------- game board */
 
 #container {
@@ -178,6 +148,17 @@ h2 {
     gap: 10px;
     width: fit-content;
     margin: auto;
+}
+
+/* ------------------------------------------------------------------------ Menu items and navigation */
+
+#main-menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    margin-top: 10px;
 }
 
 #high-scores {
@@ -194,6 +175,62 @@ h2 {
     margin: 0 auto;
     left: 25%;
 }
+
+#you-win h1 {
+    display: block;
+    font-family: "Maven Pro", monospace;
+    font-size: 6em !important;
+    font-weight: bold;
+    color: gold;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+}
+
+#how-to-play {
+    width: 50%;
+    top: 30%;
+    left: 25%;
+    display: flex;
+    flex-direction: column;
+    font-family: "Maven Pro", monospace;
+    font-size: 1em;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+}
+
+#game-options {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+    position: relative;
+}
+
+#dropdown {
+    width: 75px;
+}
+
+#stats-container {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: space-evenly;
+    position: relative;
+    left: 0;
+    top: 0;
+    margin-top: 10px;
+}
+
+.stats {
+    font-family: "Maven Pro", monospace;
+    font-size: 2em;
+}
+
+/* ------------------------------------------------------------------------ Colours */
+
 
 .card[data-pokemon-type="bug"] .card-front {
     background-color: #739f40;
@@ -295,6 +332,9 @@ h2 {
     color: white;
 }
 
+/* ------------------------------------------------------------------------ cards and flip animation */
+
+
 .card .card-inner {
     width: 200px;
     height: 200px;
@@ -377,29 +417,9 @@ h2 {
     transform: rotateY(180deg);
 }
 
-#you-win h1 {
-    display: block;
-    font-family: "Maven Pro", monospace;
-    font-size: 6em !important;
-    font-weight: bold;
-    color: gold;
-    position: relative;
-    justify-content: center;
-    align-items: center;
-}
 
-#how-to-play {
-    width: 50%;
-    top: 30%;
-    left: 25%;
-    display: flex;
-    flex-direction: column;
-    font-family: "Maven Pro", monospace;
-    font-size: 1em;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-}
+/* ------------------------------------------------------------------------ Footer */
+
 
 footer {
     position: fixed;
@@ -423,6 +443,8 @@ footer a {
     float: right;
     margin-right: 50px;
 }
+
+/* ------------------------------------------------------------------------ Media Queries */
 
 @media screen and (max-width: 992px) {
     #game {
