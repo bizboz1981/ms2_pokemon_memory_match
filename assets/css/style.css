@@ -439,7 +439,7 @@ footer a {
 
 /* ------------------------------------------------------------------------ Media Queries */
 
-@media screen and (max-height: 1080px) {
+@media screen and (max-height: 1080px) and (orientation: landscape) {
 
     .card .card-inner {
         width: 150px;
