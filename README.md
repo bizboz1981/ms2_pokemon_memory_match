@@ -193,8 +193,8 @@ If you would like to fork this repo and use it to create your own site, I would 
 4. You can now start working on the project in your favourite editor (I use VS Code).
 5. After making changes, commit them to your local repo using:
 ```
-git add .
-git commit -m "commit message here
+git add "filname.ext"
+git commit -m "commit message here"
 ```
 6. Push the changes to your forked repo on GitHub:
 ```
