@@ -17,7 +17,9 @@ Link to live project: [Pokémon Memory Match](https://bizboz1981.github.io/ms2_p
 # Project Background & Summary
 This game was driven by several motivating factors: a desire to make a game that I, and my children, would enjoy playing; a general desire to push myself technically; and a specific desire to work with REST APIs. After toying with the idea of making a side-scroller, I fairly quickly decided that this was not only very risky, but wouldn't necessarily provide the broadest learning opportunities. A card pair-matching game, however, would be flexible enough to allow a very simple version (at its most basic), but could also be extended and refined almost infinitely depending on how much time, energy and (not least) imagination I had. My hope was to use the PokeAPI to get enough data to make any of a large number of cards without having to resort to hard-coding a small number of image files in my project directories. I knew this was theoretically possible because I had seen a [similar project](https://github.com/jamesqquick/javascript-memory-match/tree/master) on YouTube. I must credit this project for my initial version of the ```loadPokemon()``` function (although I have reworked it incrementally over the course of the project). I was determined not to include any code I don't fully understand, so I must also credit [CodeCademy.com](http://codecademy.com) for the crash course on asynchronous javascript that was invaluable to my learning journey.
 
-Apart from asynchronous javascript, the use of ```localStorage``` was completely new to me, and while relatively challenging to get right, it was at least more intuitive than ```async...await```. I also found the timer to be somewhat unintuitive, as well as 
+Apart from asynchronous javascript, the use of ```localStorage``` was completely new to me, and while relatively challenging to get right, it was at least more intuitive than ```async...await```.
+
+All-in-all, I am satisfied with the game and lok forward to developing it further.
 
 <!--------------------------------------------------------User Experience -->
 
@@ -174,6 +176,7 @@ JS Received a clean bill of health from jshint as well as the below online valid
 
 ### Bugs
 The game does not work well on mobile devices in landscape mode. A media query was therefore added to target landscape mobiles and then to hide all game content (except the title) and display a message to turn the phone to portrait mode. If users attempt to play in the very small desktop browser window in landscape mode on a desktop or laptop device, the cards may not render correctly. This can be fixed by enlarging the screen. If you click on the Pokemon logo in landscape mode on a mobile, it displays the main menu, which is undesirable behaviour. This is judged to be sufficiently 'edge-case' to be acceptable to deploy the game and fix this issue in a future version.
+The game is not designed to be played on, and has not been thoroughly tested on, older tech, and there is the chance that the cards will not display correctly on older browsers and lower resolution screens. This is judged to be an acceptable trade-off.
 
 ![landscape-mobile](assets/docs/landscape-mobile.jpeg)
 
