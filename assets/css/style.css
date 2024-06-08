@@ -20,7 +20,7 @@ html {
 
 #background:before {
     content: "";
-    background-image: url("../img/pokemonForest.webp");
+    background-image: url("../img/pokemon-forest.webp");
     position: absolute;
     top: 0;
     left: 0;
