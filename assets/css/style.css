@@ -439,6 +439,32 @@ footer a {
 
 /* ------------------------------------------------------------------------ Media Queries */
 
+@media screen and (max-height: 1080px) {
+
+    .card .card-inner {
+        width: 150px;
+        height: 150px;
+    }
+
+    .card img {
+        width: 100px;
+    }
+
+    .card-front h6 {
+        bottom: -30px;
+        font-size: 18px;
+        letter-spacing: 1.5px;
+    }
+
+    .stats {
+        font-size: 2em;
+    }
+
+    .celebrate {
+        font-size: 4em;
+    }
+}
+
 @media screen and (max-width: 992px) {
     #game {
         grid-template-columns: repeat(4, 1fr) !important;
