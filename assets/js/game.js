@@ -1,5 +1,5 @@
 // Backup module
-import { backupPokemon } from "./backupPokemon.js";
+import { backupPokemon } from "./backup-pokemon.js";
 
 // Constants
 const pokeBaseURL = "https://pokeapi.co/api/v2/pokemon/";
